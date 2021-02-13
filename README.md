@@ -73,3 +73,11 @@ Thus, I came up with a game with these interests
 
 In this game, I hope players to find the features that inspires me, and also what I've seen, or realized in the project. 
 ic fonts correctly but they will appear correctly on GitHub.
+
+### User Story
+
+- As a user, I want to be able to create a new game (of  project with due date and teammates)
+- As a user, I want to be able to see actions of user's choice in each day
+- As a user, I want to be able to perform actions of user's choice in each day
+- As a user, I want to be able to progress to next day
+- As a user, I want to be able to view of lists of tasks to finish and the required times
