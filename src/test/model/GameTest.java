@@ -117,6 +117,7 @@ public class GameTest {
         Game g1 = new Game("FREN 100 GROUP VIDEO",
                 new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
         // progress to next time
+        assertEquals(1,g1.getCurrentTime());
         g1.progressToNextTime();
         assertEquals(2,g1.getCurrentTime());
     }
@@ -162,7 +163,7 @@ public class GameTest {
     }
 
     @Test
-    public void progressToNextTimeNomoreDays() {
+    public void progressToNextTimeNoMoreDays() {
         Student s1 =new Student("A",
                 "Take Video",
                 3 ,
@@ -231,7 +232,7 @@ public class GameTest {
         Game g1 = new Game("FREN 100 GROUP VIDEO",
                 new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
         //get rid of a's personal task
-        g1.finishAPersonalTask("Movie Time");
+        g1.finishAPersonalTask("Watch Titanic Together");
         //size of the listOfPersonalTask and allowed actions should be 3
         assertEquals(3,g1.getListOfPersonalTask().size());
         assertEquals(3,g1.getAvailableActions().size());
@@ -279,8 +280,8 @@ public class GameTest {
         //get rid of p.task of student B
         g1.finishAPersonalTask("Have the best meal ever together");
         //check the sizes
-        assertEquals(3,g1.getAvailableActions());
-        assertEquals(3,g1.getListOfPersonalTask());
+        assertEquals(3,g1.getAvailableActions().size());
+        assertEquals(3,g1.getListOfPersonalTask().size());
         //check the progression
         assertEquals(2,g1.getCurrentDay());
         assertEquals(1,g1.getCurrentTime());
@@ -321,15 +322,15 @@ public class GameTest {
         //no p.task is done, so no progression
         g1.doTeamTasks();
         //
-        g1.finishAPersonalTask("Movie Time");
+        g1.finishAPersonalTask("Watch Titanic Together");
         //
         g1.doTeamTasks();
         assertEquals(2,g1.getListOfTeamTask().get(0).getDaysRequired());
         //
-        g1.finishAPersonalTask("Not in mood to work");
+        g1.finishAPersonalTask("Have the best meal ever together");
         g1.doTeamTasks();
-        assertEquals(1,g1.getListOfTeamTask().get(0));
-        assertEquals(2,g1.getListOfTeamTask().get(1));
+        assertEquals(0,g1.getListOfTeamTask().get(0).getDaysRequired());
+        assertEquals(2,g1.getListOfTeamTask().get(1).getDaysRequired());
 
 
 
@@ -365,7 +366,14 @@ public class GameTest {
 
         Game g1 = new Game("FREN 100 GROUP VIDEO",
                 new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
-
+        //check if all team tasks are done
+        boolean checkAllRequiredDaysIsZero = true;
+        for (Student s : g1.getListOfStudents()) {
+            if (s.getTeamTask().get(0).getDaysRequired() !=0) {
+                checkAllRequiredDaysIsZero = false;
+            }
+        }
+        assertTrue(checkAllRequiredDaysIsZero);
         assertTrue(g1.isAllTeamTasksDoneBeforeDue());
     }
 

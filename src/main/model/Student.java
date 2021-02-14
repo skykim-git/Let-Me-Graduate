@@ -45,6 +45,10 @@ public class Student {
         }
         personalTasks = clonePersonalTasks;
     }
+    //
+    //public void workOnTeamTaskForADay() {
+     //   teamTask.get(0).
+    //}
 
     public String getName() {
         return this.name;

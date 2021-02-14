@@ -19,5 +19,11 @@ public class PersonalTask {
         return this.actionToFinishTask;
     }
 
-    public int getTimeRequiredToFinishTask() { return this.timeRequiredToFinishTask;}
+    public int getTimeRequiredToFinishTask() {
+        return this.timeRequiredToFinishTask;
+    }
+
+    public void setTimeRequiredToFinishTaskToZero() {
+        timeRequiredToFinishTask = 0;
+    }
 }

@@ -1,6 +1,5 @@
 package model;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Game {
@@ -45,7 +44,7 @@ public class Game {
     // MODIFIES : this
     // EFFECTS  : progress to next day in a game if the current time is over the given time a day.
     public void progressToNextDay() {
-        //stub
+        currentDay++;
 
     }
 
@@ -59,24 +58,84 @@ public class Game {
     // EFFECTS  : if a player does an action(choosing from options). progress to next time, if is the last time
     //            progress to the tomorrow first time. and call doTeamTasks
     public void progressToNextTime() {
-        //stub
+        if (currentTime + 1 > EachDayAllowedTime) {
+            this.progressToNextDay();
+            currentTime = 1;
+        } else {
+            currentTime++;
+        }
+        this.doTeamTasks();
     }
+
 
     // REQUIRES :
     // MODIFIES : this
     // EFFECTS  : finish a personal task (by getting rid of a p.t. in the list) and progress time and date depending on
     //            the time taken
-    public void finishAPersonalTask(String taskName) {
-        //stub
+    public void finishAPersonalTask(String actionName) {
+        //set required time for personal task to zero, and get the time required
+        int timeUsed = 0;
+        for (PersonalTask p : listOfPersonalTask) {
+            if (p.getActionToFinishTask() == actionName) {
+                //get required time
+                timeUsed = p.getTimeRequiredToFinishTask();
+                //change time should happen before finishAPersonalTask change a timerequired to zero -> double reduction
+                for (int i = 1; i <= timeUsed ; i++) {
+                    this.progressToNextTime();
+                }
+                //set required time to zero
+                p.setTimeRequiredToFinishTaskToZero();
+
+            }
+        }
+
+
+
+
+        //remake two lists about the personal tasks
+        ArrayList<PersonalTask> cloneListOfPersonalTask = new ArrayList<>();
+        ArrayList<String>       cloneAvailableActions   = new ArrayList<>();
+        for (PersonalTask p : listOfPersonalTask) {
+            if (p.getTimeRequiredToFinishTask() != 0) {
+                cloneListOfPersonalTask.add(p);
+                cloneAvailableActions.add(p.getName());
+            }
+        }
+
+        //change original two lists to the new ones
+        listOfPersonalTask = cloneListOfPersonalTask;
+        availableActions   = cloneAvailableActions;
+
+
+
     }
+
+
 
     // REQUIRES :
     // MODIFIES : this
-    // EFFECTS  : if there is a person who's personal task is done, as we progress time, the student's task time is
+    // EFFECTS  : if there is a student who's personal task is done, as we progress time, the student's task time is
     // automatically reduced
 
 
     public void doTeamTasks() {
+        ArrayList<TeamTask> cloneListOfTeamTask = new ArrayList<>();
+        for (Student s : listOfStudents) {
+            int allDone = 0;
+            for (PersonalTask pt : s.getPersonalTasks()) {
+                if (pt.getTimeRequiredToFinishTask() == 0) {
+                    //to check if all personal task is done
+                    allDone++;
+                }
+            }
+            // if all personal task is done
+            if (allDone == s.getPersonalTasks().size()) {
+                // reduce the required days for the team task for the student
+                s.getTeamTask().get(0).reduceDaysRequiredByOne();
+            }
+            cloneListOfTeamTask.add(s.getTeamTask().get(0));
+        }
+        listOfTeamTask = cloneListOfTeamTask;
 
     }
 
@@ -92,8 +151,29 @@ public class Game {
     // , return true, otherwise, false
 
     public boolean isAllTeamTasksDoneBeforeDue() {
-        //stub
-        return false;
+        //don't know what's wrong
+        boolean allTeamTaskDone = true;
+
+        for (TeamTask teamTask : listOfTeamTask) {
+            if (teamTask.getDaysRequired() != 0) {
+                allTeamTaskDone = false;
+            } else {
+                allTeamTaskDone = true;
+            }
+        }
+        boolean beforeDue;
+        if (currentDay <= getDaysToFinishWork()) {
+            beforeDue = true;
+        } else {
+            beforeDue = false;
+        }
+
+        if (allTeamTaskDone && beforeDue) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
     // REQUIRES :
     // MODIFIES : this
