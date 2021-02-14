@@ -57,19 +57,26 @@ public class Game {
     // REQUIRES :
     // MODIFIES : this
     // EFFECTS  : if a player does an action(choosing from options). progress to next time, if is the last time
-    //            progress to the tomorrow first time.
+    //            progress to the tomorrow first time. and call doTeamTasks
     public void progressToNextTime() {
         //stub
     }
 
     // REQUIRES :
     // MODIFIES : this
-    // EFFECTS  : finish a personal task (by getting rid of a p.t. in the list)
-    public void finishAPersonalTask(String TaskName) {
+    // EFFECTS  : finish a personal task (by getting rid of a p.t. in the list) and progress time and date depending on
+    //            the time taken
+    public void finishAPersonalTask(String taskName) {
         //stub
     }
 
-    public void finishATeamTask() {
+    // REQUIRES :
+    // MODIFIES : this
+    // EFFECTS  : if there is a person who's personal task is done, as we progress time, the student's task time is
+    // automatically reduced
+
+
+    public void doTeamTasks() {
 
     }
 
@@ -81,9 +88,10 @@ public class Game {
     }
     // REQUIRES :
     // MODIFIES :
-    // EFFECTS  : if all teamtasks are done before the due date, return true, otherwise, false
+    // EFFECTS  : if all teamtasks are done before the due date(teamtasks all have 0 required time)
+    // , return true, otherwise, false
 
-    public boolean isAllTeamTasksDone() {
+    public boolean isAllTeamTasksDoneBeforeDue() {
         //stub
         return false;
     }
