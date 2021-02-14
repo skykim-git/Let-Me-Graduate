@@ -151,15 +151,18 @@ public class Game {
 
     public boolean isAllTeamTasksDoneBeforeDue() {
         //don't know what's wrong
-        boolean allTeamTaskDone = true;
+        boolean allTeamTaskDone = false;
+        int zeroCount = 0;
 
         for (TeamTask teamTask : listOfTeamTask) {
-            if (teamTask.getDaysRequired() != 0) {
-                allTeamTaskDone = false;
-            } else {
-                allTeamTaskDone = true;
+            if (teamTask.getDaysRequired() == 0) {
+                zeroCount++;
             }
         }
+        if (listOfTeamTask.size() == zeroCount) {
+            allTeamTaskDone = true;
+        }
+
         boolean beforeDue;
         if (currentDay <= getDaysToFinishWork()) {
             beforeDue = true;
