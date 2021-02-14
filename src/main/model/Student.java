@@ -11,20 +11,23 @@ public class Student {
 
 
 
-    public Student(String studentName, String teamTaskInitial, int requiredDays, String personalTaskInitial,
-                   String actionForPersonalTask) {
+    public Student(String studentName,
+                   String teamTaskInitial,
+                   int requiredDays,
+                   String personalTaskInitial,
+                   String actionForPersonalTask, int timeForPersonalTask) {
         name = studentName;
         teamTask = new ArrayList<>(Arrays.asList(new TeamTask(teamTaskInitial, requiredDays)));
         personalTasks = new ArrayList<>(Arrays.asList(new PersonalTask(personalTaskInitial,
-                actionForPersonalTask)));
+                actionForPersonalTask, timeForPersonalTask)));
 
     }
 
     // MODIFIES : this
     // EFFECT   : add given personalTask to the list of personalTask of this
 
-    public void addPersonalTask(String newTaskName, String actionRequired) {
-        personalTasks.add(new PersonalTask(newTaskName, actionRequired));
+    public void addPersonalTask(String newTaskName, String actionRequired, int timeForPersonalTask) {
+        personalTasks.add(new PersonalTask(newTaskName, actionRequired, timeForPersonalTask));
     }
 
     // MODIFIES : this

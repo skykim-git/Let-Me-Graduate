@@ -14,7 +14,7 @@ class StudentTest {
     public void testStudentConstructor() {
         //create a student
         Student s1 = new Student("David","Presentation", 3,
-                "restaurant reservation", "make a reservation");
+                "restaurant reservation", "make a reservation",1);
         //check name
         assertEquals("David",s1.getName());
 
@@ -25,7 +25,7 @@ class StudentTest {
         //check personalTask
         ArrayList<PersonalTask> personalTasksExpected
                 = new ArrayList<PersonalTask>(Arrays.asList(new PersonalTask("restaurant reservation",
-                        "make a reservation")));
+                        "make a reservation",1)));
 ;
         assertEquals("restaurant reservation", s1.getPersonalTasks().get(0).getName());
         assertEquals("make a reservation", s1.getPersonalTasks().get(0).getActionToFinishTask());
@@ -35,9 +35,9 @@ class StudentTest {
     public void TestAddPersonalTask1() {
         //create a student
         Student s1 = new Student("David","Presentation", 3,
-                "restaurant reservation", "make a reservation");
+                "restaurant reservation", "make a reservation",1);
         //add task
-        s1.addPersonalTask("task2","do task2");
+        s1.addPersonalTask("task2","do task2",1);
         //check if added
         assertEquals("task2",s1.getPersonalTasks().get(1).getName());
         assertEquals("do task2",s1.getPersonalTasks().get(1).getActionToFinishTask());
@@ -48,12 +48,12 @@ class StudentTest {
     public void TestAddPersonalTaskMoreThan2() {
         //create a student
         Student s1 = new Student("David","Presentation", 3,
-                "restaurant reservation", "make a reservation");
+                "restaurant reservation", "make a reservation",1);
 
         //add task
-        s1.addPersonalTask("task2","do task2");
+        s1.addPersonalTask("task2","do task2",1);
         //add another task
-        s1.addPersonalTask("task3","do task3");
+        s1.addPersonalTask("task3","do task3",1);
         //check if added
         assertEquals("task3",s1.getPersonalTasks().get(2).getName());
         assertEquals("do task3",s1.getPersonalTasks().get(2).getActionToFinishTask());
@@ -65,9 +65,10 @@ class StudentTest {
         //create a student
         Student s1 = new Student("David", "Presentation", 3,
                 "restaurant reservation",
-                "make a reservation");
+                "make a reservation",
+                1);
         //remove the only personal task
-        s1.addPersonalTask("11","22");
+        s1.addPersonalTask("11","22",1);
         System.out.println(s1.getPersonalTasks());
         s1.removePersonalTask("11","22");
 
@@ -82,7 +83,7 @@ class StudentTest {
     @Test
     public void TestEmptyArrayList() {
         ArrayList<Student> emptyList = new ArrayList<>(Arrays.asList(new Student("john", "ss",
-                3,"2","33")));
+                3,"2","33",1)));
         ArrayList<String> intList = new ArrayList<>(Arrays.asList("1"));
         intList.remove("1");
         System.out.println(intList.size());
@@ -96,11 +97,11 @@ class StudentTest {
     public void TestRemovePersonalTaskMoreThanOneTask() {
         //create a student
         Student s1 = new Student("David","Presentation", 3,
-                "rr", "mr");
+                "rr", "mr",1);
         //add task
-        s1.addPersonalTask("task2","do task2");
+        s1.addPersonalTask("task2","do task2",1);
         //add another task
-        s1.addPersonalTask("task3","do task3");
+        s1.addPersonalTask("task3","do task3",2);
         //remove task
         s1.removePersonalTask("task2","do task2");
         //check size = 2
