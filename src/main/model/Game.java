@@ -4,8 +4,8 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Game {
-    private static int DaysToFinishWork = 10;
-    private static int EachDayAllowedTime = 3;
+    private static int DaysToFinishWork;
+    private static int EachDayAllowedTime;
 
     private String projectName;
     private ArrayList<Student> listOfStudents;
@@ -16,7 +16,10 @@ public class Game {
     private int currentDay;
     private int currentTime;
 
-    public Game(String pjName, ArrayList<Student> los) {//constructor has no return type
+    public Game(String pjName, ArrayList<Student> los) {
+        //constructor has no return type
+        DaysToFinishWork = 10;
+        EachDayAllowedTime = 3;
         projectName = pjName;
         listOfStudents = los;
         availableActions =  new ArrayList<>();
@@ -24,12 +27,12 @@ public class Game {
         listOfTeamTask = new ArrayList<>();
         //create list of availableActions and listOfTeamTask for future computation
         for (Student s : los) {
-            for (PersonalTask pTask : s.getPersonalTasks()) {
-                availableActions.add(pTask.getActionToFinishTask());
-                listOfPersonalTask.add(pTask);
+            for (PersonalTask task : s.getPersonalTasks()) {
+                availableActions.add(task.getActionToFinishTask());
+                listOfPersonalTask.add(task);
             }
-            for (TeamTask tTask : s.getTeamTask()) {
-                listOfTeamTask.add(tTask);
+            for (TeamTask task : s.getTeamTask()) {
+                listOfTeamTask.add(task);
             }
         }
         allTaskDone = false;
@@ -40,7 +43,7 @@ public class Game {
 
     // REQUIRES
     // MODIFIES : this
-    // EFFECTS  : progress to next day in a game
+    // EFFECTS  : progress to next day in a game if the current time is over the given time a day.
     public void progressToNextDay() {
         //stub
 
@@ -62,7 +65,7 @@ public class Game {
     // REQUIRES :
     // MODIFIES : this
     // EFFECTS  : finish a personal task (by getting rid of a p.t. in the list)
-    public void finishAPersonalTask() {
+    public void finishAPersonalTask(String TaskName) {
         //stub
     }
 
@@ -79,6 +82,7 @@ public class Game {
     // REQUIRES :
     // MODIFIES :
     // EFFECTS  : if all teamtasks are done before the due date, return true, otherwise, false
+
     public boolean isAllTeamTasksDone() {
         //stub
         return false;
@@ -86,8 +90,51 @@ public class Game {
     // REQUIRES :
     // MODIFIES : this
     // EFFECTS  : if the date <= given date, and if all teamTasks are done, print "success", else "fail"
+
     public void finishGame() {
         //stub
+    }
+
+    //getters
+
+    public int getDaysToFinishWork() {
+        return DaysToFinishWork;
+    }
+
+    public int getEachDayAllowedTime() {
+        return EachDayAllowedTime;
+    }
+
+    public String getProjectName() {
+        return projectName;
+    }
+
+    public ArrayList<Student> getListOfStudents() {
+        return listOfStudents;
+    }
+
+    public ArrayList<String> getAvailableActions() {
+        return availableActions;
+    }
+
+    public ArrayList<TeamTask> getListOfTeamTask() {
+        return listOfTeamTask;
+    }
+
+    public ArrayList<PersonalTask> getListOfPersonalTask() {
+        return listOfPersonalTask;
+    }
+
+    public boolean getAllTaskDone() {
+        return allTaskDone;
+    }
+
+    public int getCurrentDay() {
+        return currentDay;
+    }
+
+    public int getCurrentTime() {
+        return currentTime;
     }
 
 

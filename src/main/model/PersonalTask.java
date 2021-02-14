@@ -18,4 +18,6 @@ public class PersonalTask {
     public String getActionToFinishTask() {
         return this.actionToFinishTask;
     }
+
+    public int getTimeRequiredToFinishTask() { return this.timeRequiredToFinishTask;}
 }
