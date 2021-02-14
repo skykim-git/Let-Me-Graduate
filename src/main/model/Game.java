@@ -111,7 +111,6 @@ public class Game {
     }
 
 
-
     // REQUIRES :
     // MODIFIES : this
     // EFFECTS  : if there is a student who's personal task is done, as we progress time, the student's task time is
@@ -174,13 +173,6 @@ public class Game {
             return false;
         }
 
-    }
-    // REQUIRES :
-    // MODIFIES : this
-    // EFFECTS  : if the date <= given date, and if all teamTasks are done, print "success", else "fail"
-
-    public void finishGame() {
-        //stub
     }
 
     //getters
