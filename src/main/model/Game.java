@@ -80,7 +80,7 @@ public class Game {
                 //get required time
                 timeUsed = p.getTimeRequiredToFinishTask();
                 //change time should happen before finishAPersonalTask change a timerequired to zero -> double reduction
-                for (int i = 1; i <= timeUsed ; i++) {
+                for (int i = 1; i <= timeUsed; i++) {
                     this.progressToNextTime();
                 }
                 //set required time to zero
