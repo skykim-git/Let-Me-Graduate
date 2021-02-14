@@ -4,8 +4,8 @@ public class TeamTask {
     private String name;
     private int    daysRequired;
 
-    public TeamTask(String taskname, int days) {
-        name = taskname;
+    public TeamTask(String taskName, int days) {
+        name = taskName;
         daysRequired = days;
     }
 

@@ -14,8 +14,8 @@ public class Student {
     public Student(String studentName, String teamTaskInitial, int requiredDays, String personalTaskInitial,
                    String actionForPersonalTask) {
         name = studentName;
-        teamTask = new ArrayList<TeamTask>(Arrays.asList(new TeamTask(teamTaskInitial, requiredDays)));
-        personalTasks = new ArrayList<PersonalTask>(Arrays.asList(new PersonalTask(personalTaskInitial,
+        teamTask = new ArrayList<>(Arrays.asList(new TeamTask(teamTaskInitial, requiredDays)));
+        personalTasks = new ArrayList<>(Arrays.asList(new PersonalTask(personalTaskInitial,
                 actionForPersonalTask)));
 
     }
@@ -23,8 +23,8 @@ public class Student {
     // MODIFIES : this
     // EFFECT   : add given personalTask to the list of personalTask of this
 
-    public void addPersonalTask(String newTaskName, String action) {
-        personalTasks.add(new PersonalTask(newTaskName,action));
+    public void addPersonalTask(String newTaskName, String actionRequired) {
+        personalTasks.add(new PersonalTask(newTaskName, actionRequired));
     }
 
     // MODIFIES : this
@@ -32,11 +32,15 @@ public class Student {
     // the test removal is done, else, nothing
 
     public void removePersonalTask(String existingTaskName, String action) {
+        //creating clone for the PersonalTasks since remove() in for loop changes its index and cause error
+        ArrayList<PersonalTask> clonePersonalTasks = new ArrayList<>();
         for (PersonalTask p : personalTasks) {
-            if (p.getName() == existingTaskName && p.getActionToFinishTask() == action) {
-                personalTasks.remove(p);
+            clonePersonalTasks.add(p);
+            if ((p.getName() == existingTaskName) && (p.getActionToFinishTask() == action)) {
+                clonePersonalTasks.remove(p);
             }
         }
+        personalTasks = clonePersonalTasks;
     }
 
     public String getName() {

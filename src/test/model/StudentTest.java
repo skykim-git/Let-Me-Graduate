@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GameTest {
+class StudentTest {
     // delete or rename this class!
     @Test
     public void testStudentConstructor() {
@@ -66,13 +66,29 @@ class GameTest {
         Student s1 = new Student("David", "Presentation", 3,
                 "restaurant reservation",
                 "make a reservation");
-        //s1.addPersonalTask("a","v");
         //remove the only personal task
-        s1.removePersonalTask("restaurant reservation","make a reservation");
+        s1.addPersonalTask("11","22");
+        System.out.println(s1.getPersonalTasks());
+        s1.removePersonalTask("11","22");
+
+        //s1.removePersonalTask("restaurant reservation","make a reservation");
         //check if the task is removed (size = 0)
-        s1.getPersonalTasks().clear();
-        int s3 = s1.getPersonalTasks().size();
-        assertEquals(0, s3);
+        //int s3 = s1.getPersonalTasks().size();
+        //assertEquals(0, s3);
+
+
+    }
+
+    @Test
+    public void TestEmptyArrayList() {
+        ArrayList<Student> emptyList = new ArrayList<>(Arrays.asList(new Student("john", "ss",
+                3,"2","33")));
+        ArrayList<String> intList = new ArrayList<>(Arrays.asList("1"));
+        intList.remove("1");
+        System.out.println(intList.size());
+        System.out.println(intList);
+
+
 
     }
 
@@ -80,7 +96,7 @@ class GameTest {
     public void TestRemovePersonalTaskMoreThanOneTask() {
         //create a student
         Student s1 = new Student("David","Presentation", 3,
-                "restaurant reservation", "make a reservation");
+                "rr", "mr");
         //add task
         s1.addPersonalTask("task2","do task2");
         //add another task
@@ -88,7 +104,8 @@ class GameTest {
         //remove task
         s1.removePersonalTask("task2","do task2");
         //check size = 2
-        assertEquals(2, s1.getPersonalTasks().size());
+        s1.removePersonalTask("rr","mr");
+        assertEquals(1, s1.getPersonalTasks().size());
 
 
     }
