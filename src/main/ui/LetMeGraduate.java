@@ -145,8 +145,4 @@ public class LetMeGraduate {
         return choice;
     }
 
-    public void startGame() {
-
-
-    }
 }
