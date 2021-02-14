@@ -144,5 +144,6 @@ public class LetMeGraduate {
         int choice = choiceScanner.nextInt();
         return choice;
     }
+    //added a bit of a comment
 
 }
