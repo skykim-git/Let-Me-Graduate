@@ -1,12 +1,6 @@
 package ui;
 
-import model.Game;
-import model.PersonalTask;
-import model.Student;
-import model.TeamTask;
-
-import java.awt.event.MouseEvent;
-import java.awt.event.InputEvent;
+import model.*;
 
 import java.util.Scanner;
 import java.util.ArrayList;

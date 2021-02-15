@@ -41,8 +41,14 @@ public class GameTest {
                 5);
 
 
+        StudentList students = new StudentList();
+        students.addStudent(s1);
+        students.addStudent(s2);
+        students.addStudent(s3);
+        students.addStudent(s4);
+
         Game g1 = new Game("FREN 100 GROUP VIDEO",
-                new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
+                students.getStuList());
 
 
     }
@@ -74,8 +80,14 @@ public class GameTest {
                 5);
 
 
+        StudentList students = new StudentList();
+        students.addStudent(s1);
+        students.addStudent(s2);
+        students.addStudent(s3);
+        students.addStudent(s4);
+
         Game g1 = new Game("FREN 100 GROUP VIDEO",
-                new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
+                students.getStuList());
         // progress to next day
         g1.progressToNextDay();
         // check if the day is the next day
@@ -114,8 +126,14 @@ public class GameTest {
                 5);
 
 
+        StudentList students = new StudentList();
+        students.addStudent(s1);
+        students.addStudent(s2);
+        students.addStudent(s3);
+        students.addStudent(s4);
+
         Game g1 = new Game("FREN 100 GROUP VIDEO",
-                new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
+                students.getStuList());
         // progress to next time
         assertEquals(1,g1.getCurrentTime());
         g1.progressToNextTime();
@@ -150,8 +168,14 @@ public class GameTest {
                 5);
 
 
+        StudentList students = new StudentList();
+        students.addStudent(s1);
+        students.addStudent(s2);
+        students.addStudent(s3);
+        students.addStudent(s4);
+
         Game g1 = new Game("FREN 100 GROUP VIDEO",
-                new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
+                students.getStuList());
         //progress to next time (max day times) times
         for (int i = 1 ; i <= g1.getEachDayAllowedTime() ; i++) {
             g1.progressToNextTime();
@@ -190,8 +214,14 @@ public class GameTest {
                 5);
 
 
+        StudentList students = new StudentList();
+        students.addStudent(s1);
+        students.addStudent(s2);
+        students.addStudent(s3);
+        students.addStudent(s4);
+
         Game g1 = new Game("FREN 100 GROUP VIDEO",
-                new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
+                students.getStuList());
 
         for (int i = 1 ; i <= (g1.getEachDayAllowedTime())*(g1.getDaysToFinishWork()) ; i++) {
             g1.progressToNextTime();
@@ -229,8 +259,14 @@ public class GameTest {
                 5);
 
 
+        StudentList students = new StudentList();
+        students.addStudent(s1);
+        students.addStudent(s2);
+        students.addStudent(s3);
+        students.addStudent(s4);
+
         Game g1 = new Game("FREN 100 GROUP VIDEO",
-                new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
+                students.getStuList());
         //get rid of a's personal task
         g1.finishAPersonalTask("Watch Titanic Together");
         //size of the listOfPersonalTask and allowed actions should be 3
@@ -275,8 +311,14 @@ public class GameTest {
                 5);
 
 
+        StudentList students = new StudentList();
+        students.addStudent(s1);
+        students.addStudent(s2);
+        students.addStudent(s3);
+        students.addStudent(s4);
+
         Game g1 = new Game("FREN 100 GROUP VIDEO",
-                new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
+                students.getStuList());
         //get rid of p.task of student B
         g1.finishAPersonalTask("Have the best meal ever together");
         //check the sizes
@@ -317,8 +359,14 @@ public class GameTest {
                 5);
 
 
+        StudentList students = new StudentList();
+        students.addStudent(s1);
+        students.addStudent(s2);
+        students.addStudent(s3);
+        students.addStudent(s4);
+
         Game g1 = new Game("FREN 100 GROUP VIDEO",
-                new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
+                students.getStuList());
         //no p.task is done, so no progression
         g1.doTeamTasks();
         //
@@ -364,8 +412,14 @@ public class GameTest {
                 5);
 
 
+        StudentList students = new StudentList();
+        students.addStudent(s1);
+        students.addStudent(s2);
+        students.addStudent(s3);
+        students.addStudent(s4);
+
         Game g1 = new Game("FREN 100 GROUP VIDEO",
-                new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
+                students.getStuList());
         //check if all team tasks are done
         boolean checkAllRequiredDaysIsZero = true;
         for (Student s : g1.getListOfStudents()) {
@@ -404,9 +458,14 @@ public class GameTest {
                 "put in library and make coffee",
                 5);
 
+        StudentList students = new StudentList();
+        students.addStudent(s1);
+        students.addStudent(s2);
+        students.addStudent(s3);
+        students.addStudent(s4);
 
         Game g1 = new Game("FREN 100 GROUP VIDEO",
-                new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
+                students.getStuList());
         //progress days to finish Work
         for (int i = 1; i <= g1.getDaysToFinishWork(); i++) {
             g1.progressToNextDay();

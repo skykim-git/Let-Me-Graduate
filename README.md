@@ -76,9 +76,9 @@ ic fonts correctly but they will appear correctly on GitHub.
 
 ### User Story
 
+- As a user, I want to be able to add a new student to my students list
 - As a user, I want to be able to create a new game (of  project with due date and teammates)
 - As a user, I want to be able to see actions of user's choice in each day
 - As a user, I want to be able to perform actions of user's choice in each day
-- As a user, I want to be able to progress to next day
+- As a user, I want to be able to progress to next time
 - As a user, I want to be able to view of lists of tasks to finish and the required times
--
