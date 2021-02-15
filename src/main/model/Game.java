@@ -11,6 +11,7 @@ public class Game {
     private ArrayList<String>  availableActions;
     private ArrayList<TeamTask> listOfTeamTask;
     private ArrayList<PersonalTask> listOfPersonalTask;
+
     private boolean allTaskDone;
     private int currentDay;
     private int currentTime;
@@ -40,23 +41,16 @@ public class Game {
 
     }
 
-    // REQUIRES
     // MODIFIES : this
-    // EFFECTS  : progress to next day in a game if the current time is over the given time a day.
+    // EFFECTS  : progress to next day in a game
     public void progressToNextDay() {
         currentDay++;
 
     }
 
-    // REQUIRES :
-    // MODIFIES :
-    // EFFECTS  :
-
-
-    // REQUIRES :
     // MODIFIES : this
-    // EFFECTS  : if a player does an action(choosing from options). progress to next time, if is the last time
-    //            progress to the tomorrow first time. and call doTeamTasks
+    // EFFECTS  : progress to next time by 1, if is the last time of the day.
+    //            progress to first time of tomorrow. and call doTeamTasks
     public void progressToNextTime() {
         if (currentTime + 1 > EachDayAllowedTime) {
             this.progressToNextDay();
@@ -67,10 +61,8 @@ public class Game {
         this.doTeamTasks();
     }
 
-
-    // REQUIRES :
     // MODIFIES : this
-    // EFFECTS  : finish a personal task (by getting rid of a p.t. in the list) and progress time and date depending on
+    // EFFECTS  : finish a personal task (by setting requiredTime of pt as 0) and progress time and date depending on
     //            the time taken
     public void finishAPersonalTask(String actionName) {
         //set required time for personal task to zero, and get the time required
@@ -88,8 +80,6 @@ public class Game {
 
             }
         }
-
-
 
 
         //remake two lists about the personal tasks
@@ -110,8 +100,6 @@ public class Game {
 
     }
 
-
-    // REQUIRES :
     // MODIFIES : this
     // EFFECTS  : if there is a student who's personal task is done, as we progress time, the student's task time is
     // automatically reduced
@@ -138,16 +126,8 @@ public class Game {
 
     }
 
-    // REQUIRES :
-    // MODIFIES :
-    // EFFECTS  : print out the available actions that the player can do
-    public void showAvailableActions() {
-        //stub
-    }
-    // REQUIRES :
-    // MODIFIES :
-    // EFFECTS  : if all teamtasks are done before the due date(teamtasks all have 0 required time)
-    // , return true, otherwise, false
+    // EFFECTS  : if all team tasks are done before the due date(team tasks all have 0 required time)
+    //             return true, otherwise, false
 
     public boolean isAllTeamTasksDoneBeforeDue() {
         //don't know what's wrong
@@ -208,9 +188,10 @@ public class Game {
         return listOfPersonalTask;
     }
 
-    public boolean getAllTaskDone() {
-        return allTaskDone;
-    }
+///not used
+//    public boolean getAllTaskDone() {
+//        return allTaskDone;
+//    }
 
     public int getCurrentDay() {
         return currentDay;
@@ -219,6 +200,9 @@ public class Game {
     public int getCurrentTime() {
         return currentTime;
     }
+
+
+
 
 
 
