@@ -407,7 +407,7 @@ public class GameTest {
 
         Game g1 = new Game("FREN 100 GROUP VIDEO",
                 new ArrayList<Student>(Arrays.asList(s1, s2, s3, s4)));
-        //progress daystofinishWork
+        //progress days to finish Work
         for (int i = 1; i <= g1.getDaysToFinishWork(); i++) {
             g1.progressToNextDay();
         }
