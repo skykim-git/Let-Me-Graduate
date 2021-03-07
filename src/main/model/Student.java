@@ -1,10 +1,19 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// *** you need these
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 //represents a Student, with name, teamTask, and personalTasks
-public class Student {
+public class Student implements Writable {
     private String name;
     private ArrayList<TeamTask> teamTask;
     private ArrayList<PersonalTask> personalTasks;
@@ -58,11 +67,33 @@ public class Student {
         return this.personalTasks;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name",name);
+        json.put("teamTask",teamTaskToJson());
+        json.put("personalTasks",personalTasksToJson());
 
+        return json;
+    }
 
+    private JSONArray teamTaskToJson() {
+        JSONArray jsonArray = new JSONArray();
 
+        for (TeamTask t : teamTask) {
+            jsonArray.put(t.toJson());
+        }
 
+        return jsonArray;
+    }
 
+    private JSONArray personalTasksToJson() {
+        JSONArray jsonArray = new JSONArray();
 
+        for (PersonalTask pt : personalTasks) {
+            jsonArray.put(pt.toJson());
+        }
 
+        return jsonArray;
+    }
 }

@@ -1,6 +1,9 @@
 package model;
 
-public class TeamTask {
+import org.json.JSONObject;
+import persistence.Writable;
+
+public class TeamTask implements Writable {
     private String name;
     private int daysRequired;
 
@@ -25,4 +28,15 @@ public class TeamTask {
             daysRequired = 0;
         }
     }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+
+        json.put("name",name);
+        json.put("daysRequired",daysRequired);
+
+        return json;
+    }
+
 }

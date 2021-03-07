@@ -2,7 +2,13 @@ package model;
 
 import java.util.ArrayList;
 
-public class Game {
+// *** you need these
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
+
+public class Game implements Writable {
     private static int DaysToFinishWork;
     private static int EachDayAllowedTime;
 
@@ -189,6 +195,66 @@ public class Game {
     public ArrayList<PersonalTask> getListOfPersonalTask() {
         return listOfPersonalTask;
     }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        //no need for additional functions
+        json.put("DaysToFinishWork", DaysToFinishWork);
+        json.put("EachDayAllowedTime",EachDayAllowedTime);
+        json.put("projectName",projectName);
+        json.put("currentDay",currentDay);
+        json.put("currentTime",currentTime);
+        //needs functions
+        json.put("listOfStudents",studentsToJson());
+        json.put("listOfTeamTask",teamTasksToJson());
+        json.put("listOfPersonalTask",personalTaskToJson());
+        json.put("actionsForPersonalTask",actionsForPersonalTaskToJson());
+
+        return json;
+    }
+
+    private JSONArray studentsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Student s : listOfStudents.getStuList()) {
+            jsonArray.put(s.toJson());
+        }
+
+        return jsonArray;
+    }
+
+    private JSONArray teamTasksToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (TeamTask tt : listOfTeamTask) {
+            jsonArray.put(tt.toJson());
+        }
+
+        return jsonArray;
+    }
+
+    private JSONArray personalTaskToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (PersonalTask pt : listOfPersonalTask) {
+            jsonArray.put(pt.toJson());
+        }
+
+        return jsonArray;
+    }
+
+    private JSONArray actionsForPersonalTaskToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (String act : actionsForPersonalTask) {
+            jsonArray.put(act);
+        }
+
+        return jsonArray;
+    }
+
+
 
 ///not used
 //    public boolean getAllTaskDone() {

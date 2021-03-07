@@ -1,6 +1,10 @@
 package model;
 
-public class PersonalTask {
+import org.json.JSONObject;
+import persistence.Writable;
+import sun.tools.jstat.Jstat;
+
+public class PersonalTask implements Writable {
     private String name;
     private String actionToFinishTask;
     private int timeRequiredToFinishTask;
@@ -25,5 +29,16 @@ public class PersonalTask {
 
     public void setTimeRequiredToFinishTaskToZero() {
         timeRequiredToFinishTask = 0;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+
+        json.put("name",name);
+        json.put("actionToFinishTask",actionToFinishTask);
+        json.put("timeRequiredToFinishTask",timeRequiredToFinishTask);
+
+        return json;
     }
 }

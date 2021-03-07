@@ -1,6 +1,7 @@
 package ui;
 
 import model.*;
+import persistence.JsonWriter;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -57,6 +58,7 @@ public class LetMeGraduate {
     private StudentList stuList;
 
     private Game g1;
+    private JsonWriter jsonWriter;
 
 
     //list of strings for ui text operation
