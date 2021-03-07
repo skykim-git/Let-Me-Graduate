@@ -3,6 +3,7 @@ package ui;
 import model.*;
 import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,6 +56,8 @@ public class LetMeGraduate {
             "Nothing",
             0);
 
+    private static final String JSON_STORE = "./data/myGame.txt";
+
     private StudentList stuList;
 
     private Game g1;
@@ -98,17 +101,28 @@ public class LetMeGraduate {
     }
 
     //EFFECTS : runs the LetMeGraduate application
-    public LetMeGraduate() {
+    public LetMeGraduate() throws FileNotFoundException {
+        // put all the constant (list definitions here...!)???
+        jsonWriter = new JsonWriter(JSON_STORE);
         runLetMeGraduate();
     }
 
     // MODIFIES : this
     // EFFECTS  : runs the game till it ends
     public void runLetMeGraduate() {
-        //CreateGame
-        createGame();
-        //StartGame
-        startGame();
+        //choose!!! load or new?
+        System.out.print("To load, enter 'l', to start a new game, enter 'n'");
+        String selection = getUserInputString();
+        if (selection.equals("l")) {
+            //loadgame();
+        } else if (selection.equals("n")) {
+            //CreateGame
+            createGame();
+            //StartGame
+            startGame();
+        }
+
+
     }
 
 
@@ -414,18 +428,36 @@ public class LetMeGraduate {
     // MODIFIES : this
     // EFFECTS : get user's choice of action and process the action
     public void processActions() {
-        System.out.println("Enter Your Choice(1,2,3,4,...) or 0 for progressing to next day");
+        System.out.println("Enter Your Choice(1,2,3,4,...) or 0 for progressing to next day or -1 to save progress");
 
         int choice = getUserInputInt();
 
         if (choice == 0) {
             g1.progressToNextTime();
+        } else if (choice == -1) {
+            saveGame();
         } else {
             System.out.println("You choose: " + g1.getListOfPersonalTask().get(choice - 1).getActionToFinishTask());
             g1.finishAPersonalTask(g1.getListOfPersonalTask().get(choice - 1).getActionToFinishTask());
             System.out.println(g1.getListOfPersonalTask());
         }
     }
+
+    public void saveGame() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(g1);
+            jsonWriter.close();
+            System.out.println("Saved " + g1.getProjectName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " +  JSON_STORE);
+        }
+
+    }
+
+    public void loadGame() {
+
+    };
 }
 
 
