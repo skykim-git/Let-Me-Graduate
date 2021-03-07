@@ -7,34 +7,36 @@ public class Game {
     private static int EachDayAllowedTime;
 
     private String projectName;
-    private ArrayList<Student> listOfStudents;
-    private ArrayList<String>  availableActions;
+    private StudentList listOfStudents;
     private ArrayList<TeamTask> listOfTeamTask;
     private ArrayList<PersonalTask> listOfPersonalTask;
+    private ArrayList<String> actionsForPersonalTask;
 
     private boolean allTaskDone;
     private int currentDay;
     private int currentTime;
 
-    public Game(String pjName, ArrayList<Student> los) {
+    public Game(String pjName, StudentList los) {
         //constructor has no return type
         DaysToFinishWork = 10;
         EachDayAllowedTime = 3;
         projectName = pjName;
         listOfStudents = los;
-        availableActions =  new ArrayList<>();
-        listOfPersonalTask = new ArrayList<>();
         listOfTeamTask = new ArrayList<>();
+        listOfPersonalTask = new ArrayList<>();
+        actionsForPersonalTask =  new ArrayList<>();
+
         //create list of availableActions and listOfTeamTask for future computation
-        for (Student s : los) {
+        for (Student s : los.getStuList()) {
             for (PersonalTask task : s.getPersonalTasks()) {
-                availableActions.add(task.getActionToFinishTask());
+                actionsForPersonalTask.add(task.getActionToFinishTask());
                 listOfPersonalTask.add(task);
             }
             for (TeamTask task : s.getTeamTask()) {
                 listOfTeamTask.add(task);
             }
         }
+
         allTaskDone = false;
         currentDay = 1;
         currentTime = 1;
@@ -94,7 +96,7 @@ public class Game {
 
         //change original two lists to the new ones
         listOfPersonalTask = cloneListOfPersonalTask;
-        availableActions   = cloneAvailableActions;
+        actionsForPersonalTask = cloneAvailableActions;
 
 
 
@@ -107,7 +109,7 @@ public class Game {
 
     public void doTeamTasks() {
         ArrayList<TeamTask> cloneListOfTeamTask = new ArrayList<>();
-        for (Student s : listOfStudents) {
+        for (Student s : listOfStudents.getStuList()) {
             int allDone = 0;
             for (PersonalTask pt : s.getPersonalTasks()) {
                 if (pt.getTimeRequiredToFinishTask() == 0) {
@@ -173,11 +175,11 @@ public class Game {
     }
 
     public ArrayList<Student> getListOfStudents() {
-        return listOfStudents;
+        return listOfStudents.getStuList();
     }
 
-    public ArrayList<String> getAvailableActions() {
-        return availableActions;
+    public ArrayList<String> getActionsForPersonalTask() {
+        return actionsForPersonalTask;
     }
 
     public ArrayList<TeamTask> getListOfTeamTask() {

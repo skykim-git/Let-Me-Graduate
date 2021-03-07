@@ -5,35 +5,36 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-
 
 public class GameTest {
+    Student s1;
+    Student s2;
+    Student s3;
+    Student s4;
+
 
     @BeforeEach
     void beforeEach() {
 
-        Student s1 =new Student("A",
+        s1 =new Student("A",
                 "Take Video",
                 3 ,
                 "Movie Time",
                 "Watch Titanic Together",
                 1);
-        Student s2 = new Student("B",
+        s2 = new Student("B",
                 "Edit Video",
                 3,
                 "Not in mood to work",
                 "Have the best meal ever together",
                 3);
-        Student s3 = new Student("C",
+        s3 = new Student("C",
                 "Write Script",
                 2,
                 "Have Two Other Midterms",
                 "Help Studying",
                 2);
-        Student s4 = new Student("D",
+        s4 = new Student("D",
                 "Borrow camera and laptop",
                 3,
                 "1500 words essay, did not even start",
@@ -47,8 +48,7 @@ public class GameTest {
         students.addStudent(s3);
         students.addStudent(s4);
 
-        Game g1 = new Game("FREN 100 GROUP VIDEO",
-                students.getStuList());
+        Game g1 = new Game("FREN 100 GROUP VIDEO", students.getStuList());
 
 
     }
@@ -271,12 +271,12 @@ public class GameTest {
         g1.finishAPersonalTask("Watch Titanic Together");
         //size of the listOfPersonalTask and allowed actions should be 3
         assertEquals(3,g1.getListOfPersonalTask().size());
-        assertEquals(3,g1.getAvailableActions().size());
+        assertEquals(3,g1.getActionsForPersonalTask().size());
         //check if the time is progressed
         assertEquals(2,g1.getCurrentTime());
         //check string in the allowed actions
         boolean isThereRemovedOne = false;
-        for (String s : g1.getAvailableActions()) {
+        for (String s : g1.getActionsForPersonalTask()) {
             if (s == "Movie Time") {
                 isThereRemovedOne = true;
             }
@@ -322,7 +322,7 @@ public class GameTest {
         //get rid of p.task of student B
         g1.finishAPersonalTask("Have the best meal ever together");
         //check the sizes
-        assertEquals(3,g1.getAvailableActions().size());
+        assertEquals(3,g1.getActionsForPersonalTask().size());
         assertEquals(3,g1.getListOfPersonalTask().size());
         //check the progression
         assertEquals(2,g1.getCurrentDay());

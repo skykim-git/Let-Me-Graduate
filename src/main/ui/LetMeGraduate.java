@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LetMeGraduate {
+
     // EFFECTS : return user input
     public int getUserInputInt() {
         Scanner scanner = new Scanner(System.in);
@@ -53,7 +54,17 @@ public class LetMeGraduate {
             "Nothing",
             0);
 
-    private Game g1 = new Game("CPSC 210 PRESENTATION", new ArrayList<>(Arrays.asList(s1, s2, s3, s4)));
+    private StudentList stuList;
+
+    // makes the initial student list.
+    public void putStuInList() {
+        stuList.addStudent(s1);
+        stuList.addStudent(s2);
+        stuList.addStudent(s3);
+        stuList.addStudent(s4);
+    }
+
+    private Game g1;
 
     //list of strings for ui text operation
 
@@ -89,7 +100,6 @@ public class LetMeGraduate {
 
             this.getListOfPersonalTaskRequiredTimeString().add(Integer.toString(pt.getTimeRequiredToFinishTask()));
         }
-
     }
 
     //EFFECTS : runs the LetMeGraduate application
@@ -113,6 +123,11 @@ public class LetMeGraduate {
         welcomeCreate();
         displayBasicTimeInfo();
         seeTeamMates();
+    }
+
+    public void setStuListAndGame() {
+        putStuInList();
+        g1 = new Game("CPSC 210 PRESENTATION", stuList);
     }
 
     // EFFECTS : welcome user and create a game
