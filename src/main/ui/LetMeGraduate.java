@@ -56,15 +56,8 @@ public class LetMeGraduate {
 
     private StudentList stuList;
 
-    // makes the initial student list.
-    public void putStuInList() {
-        stuList.addStudent(s1);
-        stuList.addStudent(s2);
-        stuList.addStudent(s3);
-        stuList.addStudent(s4);
-    }
-
     private Game g1;
+
 
     //list of strings for ui text operation
 
@@ -121,13 +114,71 @@ public class LetMeGraduate {
     // EFFECTS  : welcome user and give initial information about the game
     public void createGame() {
         welcomeCreate();
+        // set default Game
+        setDefaultStuList();
+        setGame();
         displayBasicTimeInfo();
+        // add additionals
+        addStudent();
+        setGame();
+
         seeTeamMates();
     }
 
-    public void setStuListAndGame() {
+    // MODIFIES : this
+    // EFFECTS  : put default students in the stuList and additional if chosen
+
+    public void setDefaultStuList() {
         putStuInList();
+    }
+
+    // MODIFIES : this
+    // EFFECTS  : put default students in the stuList
+
+    public void setGame() {
         g1 = new Game("CPSC 210 PRESENTATION", stuList);
+    }
+
+    // makes the initial student list.
+    public void putStuInList() {
+        stuList = new StudentList();
+        stuList.addStudent(s1);
+        stuList.addStudent(s2);
+        stuList.addStudent(s3);
+        stuList.addStudent(s4);
+    }
+
+    public void putNewStudent1() {
+        Student s5 = new Student(
+                "Alex",
+                "Lighting",
+                3,
+                "Have to learn Lighting",
+                "Find a Lighting tutorial",
+                1);
+        stuList.addStudent(s5);
+    }
+
+    public void putNewStudent2() {
+        Student s6 = new Student(
+                "Micheal",
+                "Proof Read the script",
+                3,
+                "Crying after previous test",
+                "Serious soothing talk",
+                2);
+        stuList.addStudent(s6);
+    }
+
+    public void putNewStudent3() {
+        Student s7 = new Student(
+                "Tony",
+                "Set the stage",
+                3,
+                "need some protein",
+                "make protein shake",
+                1);
+        stuList.addStudent(s7);
     }
 
     // EFFECTS : welcome user and create a game
@@ -165,7 +216,6 @@ public class LetMeGraduate {
                             + "You Can Work: " + Integer.toString(g1.getEachDayAllowedTime()) + " hours a day" + "\n"
             );
         }
-
     }
 
     // EFFECTS : displays teammates info
@@ -195,6 +245,29 @@ public class LetMeGraduate {
             }
 
         }
+    }
+
+    public void addStudent() {
+        System.out.println("If you want to add another teammate, enter the number of team mates you want to add (< 3)");
+
+        String numMates = getUserInputString();
+
+        if (numMates.equals("0")) {
+            System.out.println("working with 4 team mates");
+        } else if (numMates.equals("1")) {
+            putNewStudent1();
+            System.out.println("working with 5 team mates");
+        } else if (numMates.equals("2")) {
+            putNewStudent1();
+            putNewStudent2();
+            System.out.println("working with 6 team mates");
+        } else if (numMates.equals("3")) {
+            putNewStudent1();
+            putNewStudent2();
+            putNewStudent3();
+            System.out.println("working with 7 team mates");
+        }
+
     }
 
     // EFFECTS : returns format for the formatting of the teammates
@@ -330,7 +403,7 @@ public class LetMeGraduate {
 
         for (String s : getListOfPersonalTaskNameString()) {
             System.out.print("_______________________________" + "\n");
-            System.out.println(Integer.toString(index) + " " + getListOfPersonalTaskActionString().get(index));
+            System.out.println(Integer.toString(index + 1) + " " + getListOfPersonalTaskActionString().get(index));
 
             index++;
         }
