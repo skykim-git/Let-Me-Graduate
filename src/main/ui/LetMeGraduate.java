@@ -1,9 +1,11 @@
 package ui;
 
 import model.*;
+import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -62,6 +64,7 @@ public class LetMeGraduate {
 
     private Game g1;
     private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
 
     //list of strings for ui text operation
@@ -104,6 +107,7 @@ public class LetMeGraduate {
     public LetMeGraduate() throws FileNotFoundException {
         // put all the constant (list definitions here...!)???
         jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runLetMeGraduate();
     }
 
@@ -114,15 +118,14 @@ public class LetMeGraduate {
         System.out.print("To load, enter 'l', to start a new game, enter 'n'");
         String selection = getUserInputString();
         if (selection.equals("l")) {
-            //loadgame();
+            loadGame();
+            runGameLoop();
         } else if (selection.equals("n")) {
             //CreateGame
             createGame();
             //StartGame
             startGame();
         }
-
-
     }
 
 
@@ -428,7 +431,8 @@ public class LetMeGraduate {
     // MODIFIES : this
     // EFFECTS : get user's choice of action and process the action
     public void processActions() {
-        System.out.println("Enter Your Choice(1,2,3,4,...) or 0 for progressing to next day or -1 to save progress");
+        System.out.println("Enter Your Choice(1,2,3,4,...) or 0 for progressing to next day "
+                + "or -1 to save progress " + "or 100 to load previous progress");
 
         int choice = getUserInputInt();
 
@@ -436,6 +440,8 @@ public class LetMeGraduate {
             g1.progressToNextTime();
         } else if (choice == -1) {
             saveGame();
+        } else if (choice == 100) {
+            loadGame();
         } else {
             System.out.println("You choose: " + g1.getListOfPersonalTask().get(choice - 1).getActionToFinishTask());
             g1.finishAPersonalTask(g1.getListOfPersonalTask().get(choice - 1).getActionToFinishTask());
@@ -456,8 +462,13 @@ public class LetMeGraduate {
     }
 
     public void loadGame() {
-
-    };
+        try {
+            g1 = jsonReader.read();
+            System.out.println("Loaded " + g1.getProjectName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+    }
 }
 
 

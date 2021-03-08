@@ -18,7 +18,7 @@ public class Game implements Writable {
     private ArrayList<PersonalTask> listOfPersonalTask;
     private ArrayList<String> actionsForPersonalTask;
 
-    private boolean allTaskDone;
+    private boolean allTaskDone;//지우고
     private int currentDay;
     private int currentTime;
 
@@ -53,7 +53,6 @@ public class Game implements Writable {
     // EFFECTS  : progress to next day in a game
     public void progressToNextDay() {
         currentDay++;
-
     }
 
     // MODIFIES : this
@@ -90,7 +89,7 @@ public class Game implements Writable {
         }
 
 
-        //remake two lists about the personal tasks
+        //remake two lists about the personal tasks(up
         ArrayList<PersonalTask> cloneListOfPersonalTask = new ArrayList<>();
         ArrayList<String>       cloneAvailableActions   = new ArrayList<>();
         for (PersonalTask p : listOfPersonalTask) {
@@ -269,6 +268,31 @@ public class Game implements Writable {
         return currentTime;
     }
 
+    public void setListOfPersonalTask(ArrayList<PersonalTask> personalTask) {
+        this.listOfPersonalTask = personalTask;
+    }
+
+    public void setActionsForPersonalTask(ArrayList<String> actions) {
+        this.actionsForPersonalTask = actions;
+
+    }
+
+    public void setDaysToFinishWork(int day) {
+        DaysToFinishWork = day;
+    }
+
+    public void setEachDayAllowedTime(int allowedTime) {
+        EachDayAllowedTime = allowedTime;
+    }
+
+    public void setCurrentDay(int t) {
+        currentTime = t;
+    }
+
+    public void setCurrentTime(int d) {
+        currentDay = d;
+
+    }
 
 
 
