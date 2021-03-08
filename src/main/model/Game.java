@@ -194,6 +194,15 @@ public class Game implements Writable {
         return listOfPersonalTask;
     }
 
+    public int getCurrentDay() {
+        return currentDay;
+    }
+
+    public int getCurrentTime() {
+        return currentTime;
+    }
+
+
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -252,15 +261,7 @@ public class Game implements Writable {
         return jsonArray;
     }
 
-
-
-    public int getCurrentDay() {
-        return currentDay;
-    }
-
-    public int getCurrentTime() {
-        return currentTime;
-    }
+    //setters
 
     public void setListOfPersonalTask(ArrayList<PersonalTask> personalTask) {
         this.listOfPersonalTask = personalTask;

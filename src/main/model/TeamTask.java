@@ -12,14 +12,6 @@ public class TeamTask implements Writable {
         daysRequired = days;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public int getDaysRequired() {
-        return this.daysRequired;
-    }
-
     // EFFECTS : reduce days required by one, if hit zero, keep it zero
     public void reduceDaysRequiredByOne() {
         if (daysRequired - 1 >= 0) {
@@ -37,6 +29,16 @@ public class TeamTask implements Writable {
         json.put("daysRequired",daysRequired);
 
         return json;
+    }
+
+    // getters
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getDaysRequired() {
+        return this.daysRequired;
     }
 
 }

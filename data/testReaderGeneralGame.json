@@ -1,0 +1,103 @@
+{
+    "currentTime": 1,
+    "actionsForPersonalTask": [
+        "Watch Titanic Together",
+        "Have the best meal ever together",
+        "Help Studying",
+        "put in library and make coffee"
+    ],
+    "currentDay": 1,
+    "listOfTeamTask": [
+        {
+            "name": "Take Video",
+            "daysRequired": 0
+        },
+        {
+            "name": "Edit Video",
+            "daysRequired": 0
+        },
+        {
+            "name": "Write Script",
+            "daysRequired": 0
+        },
+        {
+            "name": "Borrow camera and laptop",
+            "daysRequired": 0
+        }
+    ],
+    "DaysToFinishWork": 10,
+    "listOfStudents": [
+        {
+            "name": "A",
+            "teamTask": [{
+                "name": "Take Video",
+                "daysRequired": 0
+            }],
+            "personalTasks": [{
+                "timeRequiredToFinishTask": 1,
+                "actionToFinishTask": "Watch Titanic Together",
+                "name": "Movie Time"
+            }]
+        },
+        {
+            "name": "B",
+            "teamTask": [{
+                "name": "Edit Video",
+                "daysRequired": 0
+            }],
+            "personalTasks": [{
+                "timeRequiredToFinishTask": 3,
+                "actionToFinishTask": "Have the best meal ever together",
+                "name": "Not in mood to work"
+            }]
+        },
+        {
+            "name": "C",
+            "teamTask": [{
+                "name": "Write Script",
+                "daysRequired": 0
+            }],
+            "personalTasks": [{
+                "timeRequiredToFinishTask": 2,
+                "actionToFinishTask": "Help Studying",
+                "name": "Have Two Other Midterms"
+            }]
+        },
+        {
+            "name": "D",
+            "teamTask": [{
+                "name": "Borrow camera and laptop",
+                "daysRequired": 0
+            }],
+            "personalTasks": [{
+                "timeRequiredToFinishTask": 5,
+                "actionToFinishTask": "put in library and make coffee",
+                "name": "1500 words essay, did not even start"
+            }]
+        }
+    ],
+    "listOfPersonalTask": [
+        {
+            "timeRequiredToFinishTask": 1,
+            "actionToFinishTask": "Watch Titanic Together",
+            "name": "Movie Time"
+        },
+        {
+            "timeRequiredToFinishTask": 3,
+            "actionToFinishTask": "Have the best meal ever together",
+            "name": "Not in mood to work"
+        },
+        {
+            "timeRequiredToFinishTask": 2,
+            "actionToFinishTask": "Help Studying",
+            "name": "Have Two Other Midterms"
+        },
+        {
+            "timeRequiredToFinishTask": 5,
+            "actionToFinishTask": "put in library and make coffee",
+            "name": "1500 words essay, did not even start"
+        }
+    ],
+    "projectName": "G1",
+    "EachDayAllowedTime": 3
+}

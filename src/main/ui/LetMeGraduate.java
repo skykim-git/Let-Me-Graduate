@@ -266,6 +266,7 @@ public class LetMeGraduate {
         }
     }
 
+    // EFFECTS : add #of students of user's input(number <3)
     public void addStudent() {
         System.out.println("If you want to add another teammate, enter the number of team mates you want to add (< 3)");
 
@@ -449,6 +450,7 @@ public class LetMeGraduate {
         }
     }
 
+    // EFFECTS : save the current progress to "./data/myGame.txt"
     public void saveGame() {
         try {
             jsonWriter.open();
@@ -461,6 +463,8 @@ public class LetMeGraduate {
 
     }
 
+    // MODIFIES : this
+    // EFFECTS : load the previous progress from "./data/myGame.txt"
     public void loadGame() {
         try {
             g1 = jsonReader.read();

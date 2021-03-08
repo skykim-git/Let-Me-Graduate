@@ -48,23 +48,11 @@ public class Student implements Writable {
         ArrayList<PersonalTask> clonePersonalTasks = new ArrayList<>();
         for (PersonalTask p : personalTasks) {
             clonePersonalTasks.add(p);
-            if ((p.getName() == existingTaskName) && (p.getActionToFinishTask() == action)) {
+            if ((p.getName().equals(existingTaskName)) && (p.getActionToFinishTask().equals(action))) {
                 clonePersonalTasks.remove(p);
             }
         }
         personalTasks = clonePersonalTasks;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public ArrayList<TeamTask> getTeamTask() {
-        return this.teamTask;
-    }
-
-    public ArrayList<PersonalTask> getPersonalTasks() {
-        return this.personalTasks;
     }
 
     @Override
@@ -77,6 +65,7 @@ public class Student implements Writable {
         return json;
     }
 
+    // EFFECTS: returns teamTasks in this student as a JSON array
     private JSONArray teamTaskToJson() {
         JSONArray jsonArray = new JSONArray();
 
@@ -87,6 +76,7 @@ public class Student implements Writable {
         return jsonArray;
     }
 
+    // EFFECTS: returns personaltasks in this game as a JSON array
     private JSONArray personalTasksToJson() {
         JSONArray jsonArray = new JSONArray();
 
@@ -95,5 +85,19 @@ public class Student implements Writable {
         }
 
         return jsonArray;
+    }
+
+    //getters
+
+    public String getName() {
+        return this.name;
+    }
+
+    public ArrayList<TeamTask> getTeamTask() {
+        return this.teamTask;
+    }
+
+    public ArrayList<PersonalTask> getPersonalTasks() {
+        return this.personalTasks;
     }
 }
