@@ -1,7 +1,6 @@
 {
-    "currentTime": 2,
+    "currentTime": 3,
     "actionsForPersonalTask": [
-        "Have to learn Lighting",
         "Crying after previous test",
         "need some protein"
     ],
@@ -17,7 +16,7 @@
         },
         {
             "name": "Prepare presentation script",
-            "daysRequired": 3
+            "daysRequired": 2
         },
         {
             "name": "Do presentation",
@@ -66,7 +65,7 @@
             "name": "Rachel",
             "teamTask": [{
                 "name": "Prepare presentation script",
-                "daysRequired": 3
+                "daysRequired": 2
             }],
             "personalTasks": [{
                 "timeRequiredToFinishTask": 0,
@@ -93,7 +92,7 @@
                 "daysRequired": 3
             }],
             "personalTasks": [{
-                "timeRequiredToFinishTask": 1,
+                "timeRequiredToFinishTask": 0,
                 "actionToFinishTask": "Find a Lighting tutorial",
                 "name": "Have to learn Lighting"
             }]
@@ -124,11 +123,6 @@
         }
     ],
     "listOfPersonalTask": [
-        {
-            "timeRequiredToFinishTask": 1,
-            "actionToFinishTask": "Find a Lighting tutorial",
-            "name": "Have to learn Lighting"
-        },
         {
             "timeRequiredToFinishTask": 2,
             "actionToFinishTask": "Serious soothing talk",

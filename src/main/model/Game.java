@@ -18,7 +18,6 @@ public class Game implements Writable {
     private ArrayList<PersonalTask> listOfPersonalTask;
     private ArrayList<String> actionsForPersonalTask;
 
-    private boolean allTaskDone;//지우고
     private int currentDay;
     private int currentTime;
 
@@ -43,7 +42,6 @@ public class Game implements Writable {
             }
         }
 
-        allTaskDone = false;
         currentDay = 1;
         currentTime = 1;
 
@@ -73,9 +71,9 @@ public class Game implements Writable {
     //            the time taken
     public void finishAPersonalTask(String actionName) {
         //set required time for personal task to zero, and get the time required
-        int timeUsed = 0;
+        int timeUsed;
         for (PersonalTask p : listOfPersonalTask) {
-            if (p.getActionToFinishTask() == actionName) {
+            if (p.getActionToFinishTask().equals(actionName)) {
                 //get required time
                 timeUsed = p.getTimeRequiredToFinishTask();
                 //change time should happen before finishAPersonalTask change a timerequired to zero -> double reduction
@@ -102,8 +100,6 @@ public class Game implements Writable {
         //change original two lists to the new ones
         listOfPersonalTask = cloneListOfPersonalTask;
         actionsForPersonalTask = cloneAvailableActions;
-
-
 
     }
 
@@ -151,17 +147,20 @@ public class Game implements Writable {
         }
 
         boolean beforeDue;
-        if (currentDay <= getDaysToFinishWork()) {
-            beforeDue = true;
-        } else {
-            beforeDue = false;
-        }
+        beforeDue = currentDay <= getDaysToFinishWork();
+//        if (currentDay <= getDaysToFinishWork()) {
+//            beforeDue = true;
+//        } else {
+//            beforeDue = false;
+//        }
 
-        if (allTeamTaskDone && beforeDue) {
-            return true;
-        } else {
-            return false;
-        }
+        return (allTeamTaskDone && beforeDue);
+
+//        if (allTeamTaskDone && beforeDue) {
+//            return true;
+//        } else {
+//            return false;
+//        }
 
     }
 
@@ -254,11 +253,6 @@ public class Game implements Writable {
     }
 
 
-
-///not used
-//    public boolean getAllTaskDone() {
-//        return allTaskDone;
-//    }
 
     public int getCurrentDay() {
         return currentDay;
