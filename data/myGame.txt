@@ -1,5 +1,5 @@
 {
-    "currentTime": 3,
+    "currentTime": 2,
     "actionsForPersonalTask": [],
     "currentDay": 5,
     "listOfTeamTask": [
@@ -17,10 +17,6 @@
         },
         {
             "name": "Do presentation",
-            "daysRequired": 0
-        },
-        {
-            "name": "Lighting",
             "daysRequired": 0
         }
     ],
@@ -72,18 +68,6 @@
                 "timeRequiredToFinishTask": 0,
                 "actionToFinishTask": "Nothing",
                 "name": "Nothing"
-            }]
-        },
-        {
-            "name": "Alex",
-            "teamTask": [{
-                "name": "Lighting",
-                "daysRequired": 0
-            }],
-            "personalTasks": [{
-                "timeRequiredToFinishTask": 0,
-                "actionToFinishTask": "Find a Lighting tutorial",
-                "name": "Have to learn Lighting"
             }]
         }
     ],

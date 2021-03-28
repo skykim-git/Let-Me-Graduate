@@ -1,5 +1,7 @@
 package ui;
 
+import model.Student;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,6 +12,7 @@ public class StudentSelectionPanel extends JPanel {
     JPanel defaultStudentsPanel;
     JButton infoButton1;
     JButton infoButton2;
+    JButton showPersonalMoreThan3;
     JButton add0Button;
     Image student1;
     Image student2;
@@ -33,9 +36,9 @@ public class StudentSelectionPanel extends JPanel {
             }
         });
 
-        infoButton2 = new JButton("When done, press 'a' to progress on the module");
-        infoButton2.setBounds(30, 60, 20, 20);
-        infoButton2.setBackground(Color.blue);
+//        infoButton2 = new JButton("When done, press 'a' to progress on the module");
+//        infoButton2.setBounds(30, 60, 20, 20);
+//        infoButton2.setBackground(Color.blue);
 
         //default panel
         defaultStudentsPanel = new JPanel();
@@ -48,19 +51,18 @@ public class StudentSelectionPanel extends JPanel {
 //        defaultStudentsPanel.add(textField);
 
         //
-        JLabel stuLabel = new JLabel("gagaga");
-        stuLabel.setBounds(30,30,110,110);
-        panel.add(stuLabel);
-        defaultStudentsPanel.add(stuLabel);
-        defaultStudentsPanel.repaint();
+        String stuString = "Original Students: ";
+        for (Student s : letMeGraduate.getStuList().getStuList()) {
+            String name = s.getName();
+            stuString = stuString + "  " +  name;
+        }
 
+        JLabel stuLabel = new JLabel(stuString);
+        stuLabel.setBounds(30,300,110,110);
+        stuLabel.setBackground(Color.CYAN);
 
-
-        letMeGraduate.getStuList().getStuList().get(0);
-        letMeGraduate.getStuList().getStuList().get(1);
-        letMeGraduate.getStuList().getStuList().get(2);
-        letMeGraduate.getStuList().getStuList().get(3);
-
+        infoButton2 = new JButton(stuString);
+        infoButton2.setBounds(30, 30, 20, 20);
 
         //add 0
 
@@ -74,6 +76,22 @@ public class StudentSelectionPanel extends JPanel {
                 System.out.println("0pressed");
             }
         });
+
+        showPersonalMoreThan3 = new JButton("Show Students With time to work on PersonalTasks is More Than 3");
+        showPersonalMoreThan3.setBounds(30, 30, 20, 20);
+
+        showPersonalMoreThan3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String printMe = "Over 3: ";
+                for (Student s : letMeGraduate.getStuList().getStuList()) {
+                    printMe = printMe + " " + s.getName();
+                }
+                System.out.println(printMe);
+            }
+        });
+
+
 
 
 
@@ -125,6 +143,7 @@ public class StudentSelectionPanel extends JPanel {
         ImageIcon stu3imageIcon = new ImageIcon(student3);
 
         JLabel stu3Label = new JLabel(stu3imageIcon);
+
         stu3Label.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -142,13 +161,14 @@ public class StudentSelectionPanel extends JPanel {
         panel.add(stu1Label);
         panel.add(stu2Label);
         panel.add(stu3Label);
-
-
+        panel.add(showPersonalMoreThan3);
 
         frame.add(panel);
-        frame.add(defaultStudentsPanel);
+        //frame.pack();
+        //frame.add(stuLabel);
         frame.setSize(400, 400);
-        frame.setLayout(null);
+
+        //frame.setLayout(null);
         frame.setVisible(true);
 
     }
