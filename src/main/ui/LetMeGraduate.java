@@ -62,6 +62,10 @@ public class LetMeGraduate {
 
     private StudentList stuList;
 
+    public StudentList getStuList() {
+        return stuList;
+    }
+
     private Game g1;
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
@@ -232,6 +236,7 @@ public class LetMeGraduate {
             System.out.println(
                     "Project Name: " + g1.getProjectName() + "\n"
                             + "Days   Given: " + Integer.toString(g1.getDaysToFinishWork()) + "\n"
+                            + "Default Teammates: " + Integer.toString(g1.getListOfStudents().size()) +"\n"
                             + "You Can Work: " + Integer.toString(g1.getEachDayAllowedTime()) + " hours a day" + "\n"
             );
         }
@@ -268,25 +273,36 @@ public class LetMeGraduate {
 
     // EFFECTS : add #of students of user's input(number <3)
     public void addStudent() {
-        System.out.println("If you want to add another teammate, enter the number of team mates you want to add (< 3)");
+        //System.out.println("If you want to add another teammate, enter the number of team mates you want to add (< 3)");
+        StudentSelectionPanel stuPanel = new StudentSelectionPanel(this);
 
-        String numMates = getUserInputString();
+//        if (stuPanel.getProgressOkay()) {
+//            System.out.println("team setting done");
+//        }
 
-        if (numMates.equals("0")) {
-            System.out.println("working with 4 team mates");
-        } else if (numMates.equals("1")) {
-            putNewStudent1();
-            System.out.println("working with 5 team mates");
-        } else if (numMates.equals("2")) {
-            putNewStudent1();
-            putNewStudent2();
-            System.out.println("working with 6 team mates");
-        } else if (numMates.equals("3")) {
-            putNewStudent1();
-            putNewStudent2();
-            putNewStudent3();
-            System.out.println("working with 7 team mates");
+        String progressToGame = getUserInputString();
+
+        if (progressToGame.equals("a")) {
+            System.out.println("team setting done");
         }
+
+//        String numMates = getUserInputString();
+//
+//        if (numMates.equals("0")) {
+//            System.out.println("working with 4 team mates");
+//        } else if (numMates.equals("1")) {
+//            putNewStudent1();
+//            System.out.println("working with 5 team mates");
+//        } else if (numMates.equals("2")) {
+//            putNewStudent1();
+//            putNewStudent2();
+//            System.out.println("working with 6 team mates");
+//        } else if (numMates.equals("3")) {
+//            putNewStudent1();
+//            putNewStudent2();
+//            putNewStudent3();
+//            System.out.println("working with 7 team mates");
+//        }
 
     }
 
