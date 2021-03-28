@@ -1,10 +1,7 @@
 {
     "currentTime": 3,
-    "actionsForPersonalTask": [
-        "Crying after previous test",
-        "need some protein"
-    ],
-    "currentDay": 4,
+    "actionsForPersonalTask": [],
+    "currentDay": 5,
     "listOfTeamTask": [
         {
             "name": "Make powerpoint",
@@ -16,7 +13,7 @@
         },
         {
             "name": "Prepare presentation script",
-            "daysRequired": 2
+            "daysRequired": 0
         },
         {
             "name": "Do presentation",
@@ -24,15 +21,7 @@
         },
         {
             "name": "Lighting",
-            "daysRequired": 3
-        },
-        {
-            "name": "Proof Read the script",
-            "daysRequired": 3
-        },
-        {
-            "name": "Set the stage",
-            "daysRequired": 3
+            "daysRequired": 0
         }
     ],
     "DaysToFinishWork": 10,
@@ -65,7 +54,7 @@
             "name": "Rachel",
             "teamTask": [{
                 "name": "Prepare presentation script",
-                "daysRequired": 2
+                "daysRequired": 0
             }],
             "personalTasks": [{
                 "timeRequiredToFinishTask": 0,
@@ -89,51 +78,16 @@
             "name": "Alex",
             "teamTask": [{
                 "name": "Lighting",
-                "daysRequired": 3
+                "daysRequired": 0
             }],
             "personalTasks": [{
                 "timeRequiredToFinishTask": 0,
                 "actionToFinishTask": "Find a Lighting tutorial",
                 "name": "Have to learn Lighting"
             }]
-        },
-        {
-            "name": "Micheal",
-            "teamTask": [{
-                "name": "Proof Read the script",
-                "daysRequired": 3
-            }],
-            "personalTasks": [{
-                "timeRequiredToFinishTask": 2,
-                "actionToFinishTask": "Serious soothing talk",
-                "name": "Crying after previous test"
-            }]
-        },
-        {
-            "name": "Tony",
-            "teamTask": [{
-                "name": "Set the stage",
-                "daysRequired": 3
-            }],
-            "personalTasks": [{
-                "timeRequiredToFinishTask": 1,
-                "actionToFinishTask": "make protein shake",
-                "name": "need some protein"
-            }]
         }
     ],
-    "listOfPersonalTask": [
-        {
-            "timeRequiredToFinishTask": 2,
-            "actionToFinishTask": "Serious soothing talk",
-            "name": "Crying after previous test"
-        },
-        {
-            "timeRequiredToFinishTask": 1,
-            "actionToFinishTask": "make protein shake",
-            "name": "need some protein"
-        }
-    ],
+    "listOfPersonalTask": [],
     "projectName": "CPSC 210 PRESENTATION",
     "EachDayAllowedTime": 3
 }

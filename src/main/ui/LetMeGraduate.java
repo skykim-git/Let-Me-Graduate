@@ -12,6 +12,12 @@ import java.util.Arrays;
 
 public class LetMeGraduate {
 
+    String selectionRun;
+
+    public void setSelection(String str) {
+        selectionRun = str;
+    }
+
     // EFFECTS : return user input
     public int getUserInputInt() {
         Scanner scanner = new Scanner(System.in);
@@ -118,13 +124,17 @@ public class LetMeGraduate {
     // MODIFIES : this
     // EFFECTS  : runs the game till it ends
     public void runLetMeGraduate() {
+
+        //panel
+        LoadStartPanel loadStartPanel = new LoadStartPanel(this);
+
         //choose!!! load or new?
-        System.out.print("To load, enter 'l', to start a new game, enter 'n'");
+        //System.out.print("To load, enter 'l', to start a new game, enter 'n'");
         String selection = getUserInputString();
-        if (selection.equals("l")) {
+        if (selectionRun.equals("l")) {
             loadGame();
             runGameLoop();
-        } else if (selection.equals("n")) {
+        } else if (selectionRun.equals("n")) {
             //CreateGame
             createGame();
             //StartGame
@@ -340,9 +350,14 @@ public class LetMeGraduate {
             //b.c.of break, cannot be put in the helper.
             if (g1.isAllTeamTasksDoneBeforeDue()) {
                 System.out.println("congrats! you passed this group project");
+                SaveEndPanel saveEndPanel = new SaveEndPanel(this);
+
+                //savepanel
                 break;
             } else if (g1.getCurrentDay() >= g1.getDaysToFinishWork()) {
                 System.out.println("oh... you failed this group project... try again");
+                SaveEndPanel saveEndPanel = new SaveEndPanel(this);
+                //
                 break;
             }
         }

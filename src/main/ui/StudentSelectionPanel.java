@@ -1,7 +1,5 @@
 package ui;
 
-import model.Student;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,35 +7,33 @@ import java.awt.event.*;
 public class StudentSelectionPanel extends JPanel {
     JFrame frame;
     JPanel panel;
-    JButton choose0;
+    JButton infoButton1;
+    JButton infoButton2;
     Image student1;
     Image student2;
-    JButton choose2;
-    JButton choose3;
-    JButton choose4;
-    Boolean progressOkay;
+    Image student3;
+
 
     public StudentSelectionPanel(LetMeGraduate letMeGraduate) {
         frame = new JFrame("Student Selection");
         panel = new JPanel();
-        progressOkay = false;
         panel.setBounds(50, 50, 300, 300);
         panel.setBackground(Color.BLACK);
 
-        choose0 = new JButton("Click the number of student you want to add");
-        choose0.setBounds(30, 30, 20, 20);
-        choose0.setBackground(Color.blue);
+        infoButton1 = new JButton("Click the number of student you want to add");
+        infoButton1.setBounds(30, 30, 20, 20);
+        infoButton1.setBackground(Color.blue);
 
-        choose0.addActionListener(new ActionListener() {
+        infoButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("not that button");
             }
         });
 
-        choose2 = new JButton("When done, press 'a' to progress on the module");
-        choose2.setBounds(30, 60, 20, 20);
-        choose2.setBackground(Color.blue);
+        infoButton2 = new JButton("When done, press 'a' to progress on the module");
+        infoButton2.setBounds(30, 60, 20, 20);
+        infoButton2.setBackground(Color.blue);
 
         //student 1
 
@@ -54,7 +50,6 @@ public class StudentSelectionPanel extends JPanel {
                 System.out.println("1pressed");
                 letMeGraduate.putNewStudent1();
                 System.out.println(letMeGraduate.getStuList().getStuList().size());
-                progressOkay = true;
             }
         });
 
@@ -74,23 +69,40 @@ public class StudentSelectionPanel extends JPanel {
                 letMeGraduate.putNewStudent1();
                 letMeGraduate.putNewStudent2();
                 System.out.println(letMeGraduate.getStuList().getStuList().size());
-                progressOkay = true;
             }
         });
 
-        panel.add(choose0);
-        panel.add(choose2);
+        //student3
+
+        student3 = new ImageIcon(this.getClass()
+                .getResource("/data/student3.png"))
+                .getImage();
+        student3 = student3.getScaledInstance(50,50, Image.SCALE_SMOOTH);
+        ImageIcon stu3imageIcon = new ImageIcon(student3);
+
+        JLabel stu3Label = new JLabel(stu3imageIcon);
+        stu3Label.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println("3pressed");
+                letMeGraduate.putNewStudent1();
+                letMeGraduate.putNewStudent2();
+                letMeGraduate.putNewStudent3();
+                System.out.println(letMeGraduate.getStuList().getStuList().size());
+            }
+        });
+
+        panel.add(infoButton1);
+        panel.add(infoButton2);
         panel.add(stu1Label);
         panel.add(stu2Label);
+        panel.add(stu3Label);
+
         frame.add(panel);
         frame.setSize(400, 400);
         frame.setLayout(null);
         frame.setVisible(true);
 
-    }
-
-    public boolean getProgressOkay() {
-        return this.progressOkay;
     }
 
 
