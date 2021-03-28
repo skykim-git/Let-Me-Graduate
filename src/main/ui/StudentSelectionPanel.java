@@ -7,8 +7,10 @@ import java.awt.event.*;
 public class StudentSelectionPanel extends JPanel {
     JFrame frame;
     JPanel panel;
+    JPanel defaultStudentsPanel;
     JButton infoButton1;
     JButton infoButton2;
+    JButton add0Button;
     Image student1;
     Image student2;
     Image student3;
@@ -34,6 +36,48 @@ public class StudentSelectionPanel extends JPanel {
         infoButton2 = new JButton("When done, press 'a' to progress on the module");
         infoButton2.setBounds(30, 60, 20, 20);
         infoButton2.setBackground(Color.blue);
+
+        //default panel
+        defaultStudentsPanel = new JPanel();
+        defaultStudentsPanel.setBounds(500, 500, 300, 300);
+        defaultStudentsPanel.setBackground(Color.BLACK);
+
+        //citation
+//        JTextField textField = new JTextField(8);
+//        textField.setFont(textField.getFont().deriveFont(50f));
+//        defaultStudentsPanel.add(textField);
+
+        //
+        JLabel stuLabel = new JLabel("gagaga");
+        stuLabel.setBounds(30,30,110,110);
+        panel.add(stuLabel);
+        defaultStudentsPanel.add(stuLabel);
+        defaultStudentsPanel.repaint();
+
+
+
+        letMeGraduate.getStuList().getStuList().get(0);
+        letMeGraduate.getStuList().getStuList().get(1);
+        letMeGraduate.getStuList().getStuList().get(2);
+        letMeGraduate.getStuList().getStuList().get(3);
+
+
+        //add 0
+
+        add0Button = new JButton("I'm fine with my teammates");
+        add0Button.setBounds(30, 30, 20, 20);
+        add0Button.setBackground(Color.blue);
+
+        add0Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("0pressed");
+            }
+        });
+
+
+
+
 
         //student 1
 
@@ -94,11 +138,15 @@ public class StudentSelectionPanel extends JPanel {
 
         panel.add(infoButton1);
         panel.add(infoButton2);
+        panel.add(add0Button);
         panel.add(stu1Label);
         panel.add(stu2Label);
         panel.add(stu3Label);
 
+
+
         frame.add(panel);
+        frame.add(defaultStudentsPanel);
         frame.setSize(400, 400);
         frame.setLayout(null);
         frame.setVisible(true);

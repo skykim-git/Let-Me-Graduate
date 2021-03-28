@@ -23,7 +23,7 @@ public class SaveEndPanel extends JPanel {
         panel.setBounds(50, 50, 300, 300);
         panel.setBackground(Color.BLACK);
 
-        infoButton1 = new JButton("Press Yes or No");
+        infoButton1 = new JButton("Press Yes to save or No to end game");
         infoButton1.setBounds(30, 30, 20, 20);
         infoButton1.setBackground(Color.blue);
 

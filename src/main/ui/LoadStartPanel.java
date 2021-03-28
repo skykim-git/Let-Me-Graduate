@@ -18,8 +18,8 @@ public class LoadStartPanel extends JPanel {
         panel.setBounds(50, 50, 300, 300);
         panel.setBackground(Color.BLACK);
 
-        infoButton1 = new JButton("Press Load or New");
-        infoButton1.setBounds(30, 30, 20, 20);
+        infoButton1 = new JButton("Press Load or New to start the game");
+        infoButton1.setBounds(30, 30, 30, 30);
         infoButton1.setBackground(Color.blue);
 
 
@@ -30,16 +30,16 @@ public class LoadStartPanel extends JPanel {
             }
         });
 
-        infoButton2 = new JButton("After pressing, enter a to progress");
-        infoButton2.setBounds(30, 30, 20, 20);
-        infoButton2.setBackground(Color.blue);
-
-        infoButton2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("not that button");
-            }
-        });
+//        infoButton2 = new JButton("After pressing, enter 'a' to progress");
+//        infoButton2.setBounds(30, 30, 20, 20);
+//        infoButton2.setBackground(Color.blue);
+//
+//        infoButton2.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                System.out.println("not that button");
+//            }
+//        });
 
         // changes field selectionRun... so makes minimum change.
         loadButton = new JButton("Load");
@@ -51,6 +51,7 @@ public class LoadStartPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 letMeGraduate.setSelection("l");
                 System.out.println("You choose to load!");
+                System.out.println("enter 'a' to progress");
             }
         });
 
@@ -63,11 +64,12 @@ public class LoadStartPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 letMeGraduate.setSelection("n");
                 System.out.println("You choose to create a new game!");
+                System.out.println("enter 'a' to progress");
             }
         });
 
         panel.add(infoButton1);
-        panel.add(infoButton2);
+//        panel.add(infoButton2);
         panel.add(loadButton);
         panel.add(saveButton);
 //        panel.add(stu2Label);
