@@ -84,3 +84,4 @@ ic fonts correctly but they will appear correctly on GitHub.
 - As a user, I want to be able to view of lists of tasks to finish and the required times
 - As a user, I want to be able to save my game to file
 - As a user, I want to be able to load my game from file
+- As a user, I want to be able to see students with personal taks time more than 3
