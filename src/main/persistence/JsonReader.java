@@ -12,6 +12,7 @@ import java.util.stream.Stream;
 
 import org.json.*;
 
+// JsonReader class, reads from saved file
 public class JsonReader {
     private String source;
 

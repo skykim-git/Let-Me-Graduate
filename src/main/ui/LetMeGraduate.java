@@ -247,7 +247,7 @@ public class LetMeGraduate {
             System.out.println(
                     "Project Name: " + g1.getProjectName() + "\n"
                             + "Days   Given: " + Integer.toString(g1.getDaysToFinishWork()) + "\n"
-                            + "Default Teammates: " + Integer.toString(g1.getListOfStudents().size()) +"\n"
+                            + "Default Teammates: " + Integer.toString(g1.getListOfStudents().size()) + "\n"
                             + "You Can Work: " + Integer.toString(g1.getEachDayAllowedTime()) + " hours a day" + "\n"
             );
         }
@@ -282,14 +282,12 @@ public class LetMeGraduate {
         }
     }
 
-    // EFFECTS : add #of students of user's input(number <3)
+    // MODIFIES : this
+    // EFFECTS : add # of students of user's input(number <3)
     public void addStudent() {
-        //System.out.println("If you want to add another teammate, enter the number of team mates you want to add (< 3)");
+        //System.out.println("If you want to add another teammate,
+        // enter the number of team mates you want to add (< 3)");
         StudentSelectionPanel stuPanel = new StudentSelectionPanel(this);
-
-//        if (stuPanel.getProgressOkay()) {
-//            System.out.println("team setting done");
-//        }
 
         String progressToGame = getUserInputString();
 
@@ -297,6 +295,7 @@ public class LetMeGraduate {
             System.out.println("team setting done");
         }
 
+        // for later, without gui code.
 //        String numMates = getUserInputString();
 //
 //        if (numMates.equals("0")) {
