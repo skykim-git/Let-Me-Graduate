@@ -19,6 +19,7 @@ public class StudentSelectionPanel extends JPanel {
     JLabel stu1Label;
     JLabel stu2Label;
     JLabel stu3Label;
+
     Image student1;
     Image student2;
     Image student3;
