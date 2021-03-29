@@ -1,10 +1,15 @@
 package ui;
 
 import model.Student;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 // gui class for showing options to add students, to show only students with personal project time more than 3
 // and display original students.
@@ -115,7 +120,7 @@ public class StudentSelectionPanel extends JPanel {
         //student 1
 
         student1 = new ImageIcon(this.getClass()
-                .getResource("/data/student1.png"))
+                .getResource("/data/photos/student1.png"))
                 .getImage();
         student1 = student1.getScaledInstance(80,80, Image.SCALE_SMOOTH);
         ImageIcon stu1imageIcon = new ImageIcon(student1);
@@ -127,6 +132,8 @@ public class StudentSelectionPanel extends JPanel {
                 System.out.println("1 button pressed, press 'a' to continue");
                 letMeGraduate.putNewStudent1();
                 System.out.println(letMeGraduate.getStuList().getStuList().size());
+                playMusic("/Users/friday/IdeaProjects/project_g5b3mphase3/src/main/data/sounds/"
+                        + "1 student sound.wav");
             }
         });
     }
@@ -138,7 +145,7 @@ public class StudentSelectionPanel extends JPanel {
         //student2
 
         student2 = new ImageIcon(this.getClass()
-                .getResource("/data/student2.png"))
+                .getResource("/data/photos/student2.png"))
                 .getImage();
         student2 = student2.getScaledInstance(80,80, Image.SCALE_SMOOTH);
         ImageIcon stu2imageIcon = new ImageIcon(student2);
@@ -151,6 +158,8 @@ public class StudentSelectionPanel extends JPanel {
                 letMeGraduate.putNewStudent1();
                 letMeGraduate.putNewStudent2();
                 System.out.println(letMeGraduate.getStuList().getStuList().size());
+                playMusic("/Users/friday/IdeaProjects/project_g5b3mphase3/src/main/data/"
+                        + "sounds/2 stu sound.wav");
             }
         });
     }
@@ -161,7 +170,7 @@ public class StudentSelectionPanel extends JPanel {
         //student3
 
         student3 = new ImageIcon(this.getClass()
-                .getResource("/data/student3.png"))
+                .getResource("/data/photos/student3.png"))
                 .getImage();
         student3 = student3.getScaledInstance(80,80, Image.SCALE_SMOOTH);
         ImageIcon stu3imageIcon = new ImageIcon(student3);
@@ -176,6 +185,8 @@ public class StudentSelectionPanel extends JPanel {
                 letMeGraduate.putNewStudent2();
                 letMeGraduate.putNewStudent3();
                 System.out.println(letMeGraduate.getStuList().getStuList().size());
+                playMusic("/Users/friday/IdeaProjects/project_g5b3mphase3/"
+                        + "src/main/data/sounds/3 students sound.wav");
             }
         });
     }
@@ -192,11 +203,29 @@ public class StudentSelectionPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String printMe = "Over 3 are: ";
+                playMusic("/Users/friday/IdeaProjects/project_g5b3mphase3/src/main/"
+                        +
+                        "data/sounds/showlist sound.wav");
                 for (Student s : letMeGraduate.getStuList().getStuList()) {
                     printMe = printMe + " " + s.getName();
                 }
                 System.out.println(printMe);
+
             }
         });
+    }
+
+    //EFFECTS: play sound given the filepath
+    public static void playMusic(String filepath) {
+        InputStream music;
+        try {
+            music = new FileInputStream(new File(filepath));
+            AudioStream audios = new AudioStream(music);
+            AudioPlayer.player.start(audios);
+
+        } catch (Exception e) {
+            System.out.println("Wrong input");
+        }
+
     }
 }

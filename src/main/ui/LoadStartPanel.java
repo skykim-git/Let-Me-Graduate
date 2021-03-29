@@ -1,8 +1,14 @@
 package ui;
 
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 // gui class for giving options to load or start a new game when the game starts.
 public class LoadStartPanel extends JPanel {
@@ -65,6 +71,8 @@ public class LoadStartPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 letMeGraduate.setSelection("l");
+                playMusic("/Users/friday/IdeaProjects/project_g5b3mphase3/src/main/data/sounds/"
+                        + "load game sound.wav");
                 System.out.println("You choose to load!");
                 System.out.println("enter 'a' to progress");
             }
@@ -82,10 +90,26 @@ public class LoadStartPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 letMeGraduate.setSelection("n");
+                playMusic("/Users/friday/IdeaProjects/project_g5b3mphase3/src/main/data/sounds/"
+                        + "new game sound.wav");
                 System.out.println("You choose to create a new game!");
                 System.out.println("enter 'a' to progress");
             }
         });
+    }
+
+    //EFFECTS: play sound given the filepath
+    public static void playMusic(String filepath) {
+        InputStream music;
+        try {
+            music = new FileInputStream(new File(filepath));
+            AudioStream audios = new AudioStream(music);
+            AudioPlayer.player.start(audios);
+
+        } catch (Exception e) {
+            System.out.println("Wrong input");
+        }
+
     }
 
 

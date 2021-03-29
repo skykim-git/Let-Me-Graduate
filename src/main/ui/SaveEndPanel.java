@@ -1,8 +1,14 @@
 package ui;
 
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 
 // gui class for giving options to save or end a game when game ends.
@@ -90,7 +96,22 @@ public class SaveEndPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Progress not saved! Bye!");
+                playMusic("/Users/friday/IdeaProjects/project_g5b3mphase3/src/main/data/sounds/end sound.wav");
             }
         });
+    }
+
+    //EFFECTS: play sound given the filepath
+    public static void playMusic(String filepath) {
+        InputStream music;
+        try {
+            music = new FileInputStream(new File(filepath));
+            AudioStream audios = new AudioStream(music);
+            AudioPlayer.player.start(audios);
+
+        } catch (Exception e) {
+            System.out.println("Wrong input");
+        }
+
     }
 }
