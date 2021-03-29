@@ -3,6 +3,7 @@ package model;
 import org.json.JSONObject;
 import persistence.Writable;
 
+//represent a teamTask, which has name and days Required.
 public class TeamTask implements Writable {
     private String name;
     private int daysRequired;

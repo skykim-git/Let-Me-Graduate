@@ -3,7 +3,7 @@ package model;
 import org.json.JSONObject;
 import persistence.Writable;
 
-
+//represents a personal Task which has name, actionToFinishTask, and timeRequired to finish task.
 public class PersonalTask implements Writable {
     private String name;
     private String actionToFinishTask;

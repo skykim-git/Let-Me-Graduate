@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;
 
-
+//represents a game, which has basic setting for a game and current progress
 public class Game implements Writable {
     private static int DaysToFinishWork;
     private static int EachDayAllowedTime;
@@ -148,20 +148,8 @@ public class Game implements Writable {
 
         boolean beforeDue;
         beforeDue = currentDay <= getDaysToFinishWork();
-//        if (currentDay <= getDaysToFinishWork()) {
-//            beforeDue = true;
-//        } else {
-//            beforeDue = false;
-//        }
 
         return (allTeamTaskDone && beforeDue);
-
-//        if (allTeamTaskDone && beforeDue) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-
     }
 
     //getters

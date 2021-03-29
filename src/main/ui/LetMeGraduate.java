@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// ui for running game
 public class LetMeGraduate {
 
     String selectionRun;
