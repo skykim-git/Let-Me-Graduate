@@ -1,14 +1,15 @@
 package ui;
 
+import Exceptions.NotValidNumChoiceException;
 import model.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 // ui for running game
 public class LetMeGraduate {
@@ -443,7 +444,16 @@ public class LetMeGraduate {
     // EFFECTS   : let user choose actions from displayed ones
     public void chooseAction() {
         displayActions();
-        processActions();
+        try {
+            processActions();
+        } catch (InputMismatchException e) {
+            System.out.println("here another exception from scanner:)");
+
+        } catch (Exception e) {
+            System.out.println("Not a valid choice, choose valid choice again.");
+            chooseAction();
+        }
+
     }
 
     // EFFECTS : display available actions for a user
@@ -461,12 +471,16 @@ public class LetMeGraduate {
     }
 
     // MODIFIES : this
-    // EFFECTS : get user's choice of action and process the action
-    public void processActions() {
+    // EFFECTS : get user's choice of action and process the action and throws NotValidNumChoiceException if a
+    // non-valid value is given. non-int press works somehow...
+    public void processActions() throws NotValidNumChoiceException {
         System.out.println("Enter Your Choice(1,2,3,4,...) or 0 for progressing to next day "
                 + "or -1 to save progress " + "or 100 to load previous progress");
+        System.out.println("hereis the number!!!!!!");
+        int choice = getUserInputInt();// in my theory, throws exception if caught string yessss InputMismatchException
 
-        int choice = getUserInputInt();
+        System.out.println(choice + "wtf here");
+
 
         if (choice == 0) {
             g1.progressToNextTime();
@@ -474,6 +488,8 @@ public class LetMeGraduate {
             saveGame();
         } else if (choice == 100) {
             loadGame();
+        } else if (choice > g1.getListOfStudents().size() || choice < 0) {
+            throw new NotValidNumChoiceException("howwokrs");
         } else {
             System.out.println("You choose: " + g1.getListOfPersonalTask().get(choice - 1).getActionToFinishTask());
             g1.finishAPersonalTask(g1.getListOfPersonalTask().get(choice - 1).getActionToFinishTask());
