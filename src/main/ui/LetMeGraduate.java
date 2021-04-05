@@ -66,7 +66,7 @@ public class LetMeGraduate {
             "Nothing",
             0);
 
-    private static final String JSON_STORE = "./data/myGame.txt";
+    private static final String JSON_STORE = "./data/myGame.json";
 
     private StudentList stuList;
 
@@ -495,7 +495,7 @@ public class LetMeGraduate {
         }
     }
 
-    // EFFECTS : save the current progress to "./data/myGame.txt"
+    // EFFECTS : save the current progress to "./data/myGame.json"
     public void saveGame() {
         try {
             jsonWriter.open();
@@ -509,7 +509,7 @@ public class LetMeGraduate {
     }
 
     // MODIFIES : this
-    // EFFECTS : load the previous progress from "./data/myGame.txt"
+    // EFFECTS : load the previous progress from "./data/myGame.json"
     public void loadGame() {
         try {
             g1 = jsonReader.read();
