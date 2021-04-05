@@ -1,12 +1,14 @@
 {
     "currentTime": 2,
     "actionsForPersonalTask": [
-        "Moving out today",
+        "Have to learn Lighting",
+        "Crying after previous test",
+        "need some protein",
         "Have to learn Lighting",
         "Crying after previous test",
         "need some protein"
     ],
-    "currentDay": 2,
+    "currentDay": 4,
     "listOfTeamTask": [
         {
             "name": "Make powerpoint",
@@ -14,7 +16,7 @@
         },
         {
             "name": "Do research",
-            "daysRequired": 3
+            "daysRequired": 0
         },
         {
             "name": "Prepare presentation script",
@@ -23,6 +25,18 @@
         {
             "name": "Do presentation",
             "daysRequired": 0
+        },
+        {
+            "name": "Lighting",
+            "daysRequired": 3
+        },
+        {
+            "name": "Proof Read the script",
+            "daysRequired": 3
+        },
+        {
+            "name": "Set the stage",
+            "daysRequired": 3
         },
         {
             "name": "Lighting",
@@ -55,7 +69,7 @@
             "name": "Kori",
             "teamTask": [{
                 "name": "Do research",
-                "daysRequired": 3
+                "daysRequired": 0
             }],
             "personalTasks": [{
                 "timeRequiredToFinishTask": 0,
@@ -70,7 +84,7 @@
                 "daysRequired": 3
             }],
             "personalTasks": [{
-                "timeRequiredToFinishTask": 6,
+                "timeRequiredToFinishTask": 0,
                 "actionToFinishTask": "Help Moving out!",
                 "name": "Moving out today"
             }]
@@ -122,13 +136,59 @@
                 "actionToFinishTask": "make protein shake",
                 "name": "need some protein"
             }]
+        },
+        {
+            "name": "Alex",
+            "teamTask": [{
+                "name": "Lighting",
+                "daysRequired": 3
+            }],
+            "personalTasks": [{
+                "timeRequiredToFinishTask": 1,
+                "actionToFinishTask": "Find a Lighting tutorial",
+                "name": "Have to learn Lighting"
+            }]
+        },
+        {
+            "name": "Micheal",
+            "teamTask": [{
+                "name": "Proof Read the script",
+                "daysRequired": 3
+            }],
+            "personalTasks": [{
+                "timeRequiredToFinishTask": 2,
+                "actionToFinishTask": "Serious soothing talk",
+                "name": "Crying after previous test"
+            }]
+        },
+        {
+            "name": "Tony",
+            "teamTask": [{
+                "name": "Set the stage",
+                "daysRequired": 3
+            }],
+            "personalTasks": [{
+                "timeRequiredToFinishTask": 1,
+                "actionToFinishTask": "make protein shake",
+                "name": "need some protein"
+            }]
         }
     ],
     "listOfPersonalTask": [
         {
-            "timeRequiredToFinishTask": 6,
-            "actionToFinishTask": "Help Moving out!",
-            "name": "Moving out today"
+            "timeRequiredToFinishTask": 1,
+            "actionToFinishTask": "Find a Lighting tutorial",
+            "name": "Have to learn Lighting"
+        },
+        {
+            "timeRequiredToFinishTask": 2,
+            "actionToFinishTask": "Serious soothing talk",
+            "name": "Crying after previous test"
+        },
+        {
+            "timeRequiredToFinishTask": 1,
+            "actionToFinishTask": "make protein shake",
+            "name": "need some protein"
         },
         {
             "timeRequiredToFinishTask": 1,

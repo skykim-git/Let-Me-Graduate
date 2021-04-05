@@ -20,7 +20,7 @@ class StudentTest {
 
         //check teamTask
         assertEquals("Presentation", s1.getTeamTask().get(0).getName());
-        assertEquals(3,s1.getTeamTask().get(0).getDaysRequired());
+        assertEquals(3,s1.getTeamTask().get(0).getTimeRequired());
 
         //check personalTask
         ArrayList<PersonalTask> personalTasksExpected

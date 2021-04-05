@@ -4,31 +4,20 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 //represents a personal Task which has name, actionToFinishTask, and timeRequired to finish task.
-public class PersonalTask implements Writable {
-    private String name;
+public class PersonalTask extends Task {
     private String actionToFinishTask;
-    private int timeRequiredToFinishTask;
 
     public PersonalTask(String taskName, String action, int time) {
-        name = taskName;
+        super(taskName, time);
         actionToFinishTask = action;
-        timeRequiredToFinishTask = time;
-    }
-
-    public String getName() {
-        return this.name;
     }
 
     public String getActionToFinishTask() {
         return this.actionToFinishTask;
     }
 
-    public int getTimeRequiredToFinishTask() {
-        return this.timeRequiredToFinishTask;
-    }
-
     public void setTimeRequiredToFinishTaskToZero() {
-        timeRequiredToFinishTask = 0;
+        this.timeRequired = 0;
     }
 
     @Override
@@ -37,7 +26,7 @@ public class PersonalTask implements Writable {
 
         json.put("name",name);
         json.put("actionToFinishTask",actionToFinishTask);
-        json.put("timeRequiredToFinishTask",timeRequiredToFinishTask);
+        json.put("timeRequiredToFinishTask",this.timeRequired);
 
         return json;
     }

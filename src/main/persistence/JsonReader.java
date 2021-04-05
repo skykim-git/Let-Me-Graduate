@@ -67,7 +67,7 @@ public class JsonReader {
         ArrayList<PersonalTask> cloneListOfPersonalTask = new ArrayList<>();
         ArrayList<String>       cloneAvailableActions   = new ArrayList<>();
         for (PersonalTask p : game.getListOfPersonalTask()) {
-            if (p.getTimeRequiredToFinishTask() != 0) {
+            if (p.getTimeRequired() != 0) {
                 cloneListOfPersonalTask.add(p);
                 cloneAvailableActions.add(p.getName());
             }
@@ -93,9 +93,9 @@ public class JsonReader {
         String name = jsonObject.getString("name");
         ArrayList<TeamTask> teamTask = addTeamTasks(jsonObject);
         ArrayList<PersonalTask> personalTask = addPersonalTasks(jsonObject);
-        Student student = new Student(name, teamTask.get(0).getName(), teamTask.get(0).getDaysRequired(),
+        Student student = new Student(name, teamTask.get(0).getName(), teamTask.get(0).getTimeRequired(),
                 personalTask.get(0).getName(), personalTask.get(0).getActionToFinishTask(),
-                personalTask.get(0).getTimeRequiredToFinishTask());
+                personalTask.get(0).getTimeRequired());
         return student;
     }
 

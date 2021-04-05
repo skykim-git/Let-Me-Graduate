@@ -143,12 +143,12 @@ public class GameTest {
         g1.finishAPersonalTask("Watch Titanic Together");
         //
         g1.doTeamTasks();
-        assertEquals(2,g1.getListOfTeamTask().get(0).getDaysRequired());
+        assertEquals(2,g1.getListOfTeamTask().get(0).getTimeRequired());
         //
         g1.finishAPersonalTask("Have the best meal ever together");
         g1.doTeamTasks();
-        assertEquals(0,g1.getListOfTeamTask().get(0).getDaysRequired());
-        assertEquals(2,g1.getListOfTeamTask().get(1).getDaysRequired());
+        assertEquals(0,g1.getListOfTeamTask().get(0).getTimeRequired());
+        assertEquals(2,g1.getListOfTeamTask().get(1).getTimeRequired());
     }
 
     @Test
@@ -190,7 +190,7 @@ public class GameTest {
         //check if all team tasks are done
         boolean checkAllRequiredDaysIsZero = true;
         for (Student s : g1.getListOfStudents()) {
-            if (s.getTeamTask().get(0).getDaysRequired() !=0) {
+            if (s.getTeamTask().get(0).getTimeRequired() !=0) {
                 checkAllRequiredDaysIsZero = false;
             }
         }

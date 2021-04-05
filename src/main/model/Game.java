@@ -75,7 +75,7 @@ public class Game implements Writable {
         for (PersonalTask p : listOfPersonalTask) {
             if (p.getActionToFinishTask().equals(actionName)) {
                 //get required time
-                timeUsed = p.getTimeRequiredToFinishTask();
+                timeUsed = p.getTimeRequired();
                 //change time should happen before finishAPersonalTask change a timerequired to zero -> double reduction
                 for (int i = 1; i <= timeUsed; i++) {
                     this.progressToNextTime();
@@ -91,7 +91,7 @@ public class Game implements Writable {
         ArrayList<PersonalTask> cloneListOfPersonalTask = new ArrayList<>();
         ArrayList<String>       cloneAvailableActions   = new ArrayList<>();
         for (PersonalTask p : listOfPersonalTask) {
-            if (p.getTimeRequiredToFinishTask() != 0) {
+            if (p.getTimeRequired() != 0) {
                 cloneListOfPersonalTask.add(p);
                 cloneAvailableActions.add(p.getName());
             }
@@ -113,7 +113,7 @@ public class Game implements Writable {
         for (Student s : listOfStudents.getStuList()) {
             int allDone = 0;
             for (PersonalTask pt : s.getPersonalTasks()) {
-                if (pt.getTimeRequiredToFinishTask() == 0) {
+                if (pt.getTimeRequired() == 0) {
                     //to check if all personal task is done
                     allDone++;
                 }
@@ -138,7 +138,7 @@ public class Game implements Writable {
         int zeroCount = 0;
 
         for (TeamTask teamTask : listOfTeamTask) {
-            if (teamTask.getDaysRequired() == 0) {
+            if (teamTask.getTimeRequired() == 0) {
                 zeroCount++;
             }
         }

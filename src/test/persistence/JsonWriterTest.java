@@ -90,14 +90,14 @@ public class JsonWriterTest {
                     PersonalTask readPersonalTask = readStudent.getPersonalTasks().get(internalIndex);
                     assertEquals(pt.getName(),readPersonalTask.getName());
                     assertEquals(pt.getActionToFinishTask(),readPersonalTask.getActionToFinishTask());
-                    assertEquals(pt.getTimeRequiredToFinishTask(),readPersonalTask.getTimeRequiredToFinishTask());
+                    assertEquals(pt.getTimeRequired(),readPersonalTask.getTimeRequired());
                     internalIndex++;
                 }
                 internalIndex = 0;
                 for (TeamTask tt : s.getTeamTask()) {
                     TeamTask readTeamTask  = readStudent.getTeamTask().get(internalIndex);
                     assertEquals(tt.getName(),readTeamTask.getName());
-                    assertEquals(tt.getDaysRequired(),readTeamTask.getDaysRequired());
+                    assertEquals(tt.getTimeRequired(),readTeamTask.getTimeRequired());
                     internalIndex++;
                 }
                 index++;

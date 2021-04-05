@@ -20,7 +20,7 @@ public class LetMeGraduate {
         selectionRun = str;
     }
 
-    // EFFECTS : return user input
+    // EFFECTS : return user input, if other than integer is put, then throws InputMismatchException(unchecked)
     public int getUserInputInt() {
         Scanner scanner = new Scanner(System.in);
         int userInput = scanner.nextInt();
@@ -111,7 +111,7 @@ public class LetMeGraduate {
 
             this.getListOfPersonalTaskActionString().add(pt.getActionToFinishTask());
 
-            this.getListOfPersonalTaskRequiredTimeString().add(Integer.toString(pt.getTimeRequiredToFinishTask()));
+            this.getListOfPersonalTaskRequiredTimeString().add(Integer.toString(pt.getTimeRequired()));
         }
     }
 
@@ -274,9 +274,9 @@ public class LetMeGraduate {
                         formatTeamMate,
                         s.getName(),
                         s.getTeamTask().get(0).getName(),
-                        s.getTeamTask().get(0).getDaysRequired(),
+                        s.getTeamTask().get(0).getTimeRequired(),
                         s.getPersonalTasks().get(0).getName(),
-                        s.getPersonalTasks().get(0).getTimeRequiredToFinishTask());
+                        s.getPersonalTasks().get(0).getTimeRequired());
                 System.out.println();
             }
 
@@ -421,7 +421,7 @@ public class LetMeGraduate {
             System.out.printf(
                     teamTaskInfoFormat,
                     tt.getName(),
-                    Integer.toString(tt.getDaysRequired()));
+                    Integer.toString(tt.getTimeRequired()));
             System.out.println();
         }
 
@@ -472,14 +472,12 @@ public class LetMeGraduate {
 
     // MODIFIES : this
     // EFFECTS : get user's choice of action and process the action and throws NotValidNumChoiceException if a
-    // non-valid value is given. non-int press works somehow...
+    // non-valid value is given.
     public void processActions() throws NotValidNumChoiceException {
         System.out.println("Enter Your Choice(1,2,3,4,...) or 0 for progressing to next day "
                 + "or -1 to save progress " + "or 100 to load previous progress");
-        System.out.println("hereis the number!!!!!!");
         int choice = getUserInputInt();// in my theory, throws exception if caught string yessss InputMismatchException
 
-        System.out.println(choice + "wtf here");
 
 
         if (choice == 0) {

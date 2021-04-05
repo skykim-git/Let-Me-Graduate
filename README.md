@@ -85,3 +85,11 @@ ic fonts correctly but they will appear correctly on GitHub.
 - As a user, I want to be able to save my game to file
 - As a user, I want to be able to load my game from file
 - As a user, I want to be able to see students with personal taks time more than 3
+
+### Project Phase 4: Task 3
+
+-Included a type hierarchy
+-Task (abstract class)
+-TeamTask (subclass 1), overrides toJson abstract method in super.
+-PersonalTask (subclass 2), overrides toJson abstract method in super.
+
