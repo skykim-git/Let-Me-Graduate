@@ -1,14 +1,12 @@
 {
-    "currentTime": 2,
+    "currentTime": 1,
     "actionsForPersonalTask": [
-        "Have to learn Lighting",
         "Crying after previous test",
         "need some protein",
-        "Have to learn Lighting",
         "Crying after previous test",
         "need some protein"
     ],
-    "currentDay": 4,
+    "currentDay": 5,
     "listOfTeamTask": [
         {
             "name": "Make powerpoint",
@@ -20,7 +18,7 @@
         },
         {
             "name": "Prepare presentation script",
-            "daysRequired": 3
+            "daysRequired": 1
         },
         {
             "name": "Do presentation",
@@ -28,7 +26,7 @@
         },
         {
             "name": "Lighting",
-            "daysRequired": 3
+            "daysRequired": 2
         },
         {
             "name": "Proof Read the script",
@@ -81,7 +79,7 @@
             "name": "Rachel",
             "teamTask": [{
                 "name": "Prepare presentation script",
-                "daysRequired": 3
+                "daysRequired": 1
             }],
             "personalTasks": [{
                 "timeRequiredToFinishTask": 0,
@@ -105,10 +103,10 @@
             "name": "Alex",
             "teamTask": [{
                 "name": "Lighting",
-                "daysRequired": 3
+                "daysRequired": 2
             }],
             "personalTasks": [{
-                "timeRequiredToFinishTask": 1,
+                "timeRequiredToFinishTask": 0,
                 "actionToFinishTask": "Find a Lighting tutorial",
                 "name": "Have to learn Lighting"
             }]
@@ -144,7 +142,7 @@
                 "daysRequired": 3
             }],
             "personalTasks": [{
-                "timeRequiredToFinishTask": 1,
+                "timeRequiredToFinishTask": 0,
                 "actionToFinishTask": "Find a Lighting tutorial",
                 "name": "Have to learn Lighting"
             }]
@@ -176,11 +174,6 @@
     ],
     "listOfPersonalTask": [
         {
-            "timeRequiredToFinishTask": 1,
-            "actionToFinishTask": "Find a Lighting tutorial",
-            "name": "Have to learn Lighting"
-        },
-        {
             "timeRequiredToFinishTask": 2,
             "actionToFinishTask": "Serious soothing talk",
             "name": "Crying after previous test"
@@ -189,11 +182,6 @@
             "timeRequiredToFinishTask": 1,
             "actionToFinishTask": "make protein shake",
             "name": "need some protein"
-        },
-        {
-            "timeRequiredToFinishTask": 1,
-            "actionToFinishTask": "Find a Lighting tutorial",
-            "name": "Have to learn Lighting"
         },
         {
             "timeRequiredToFinishTask": 2,
