@@ -88,8 +88,19 @@ ic fonts correctly but they will appear correctly on GitHub.
 
 ### Project Phase 4: Task 3
 
+#### Changed
 -Included a type hierarchy
 -Task (abstract class)
 -TeamTask (subclass 1), overrides toJson abstract method in super.
 -PersonalTask (subclass 2), overrides toJson abstract method in super.
 
+
+#### More refactoring if given more time
+After drawing the UML diagram, I found out that coupling of this program is considerable.
+To draw UML clearly, I had to cross many lines which indicates that there is a tight coupling
+that is to be fixed. 
+- So the parts that I can improve more are : the coupling around Student, Game, LetMeGraduate, StudentList
+- I would be able to fix the coupling by making the association between the types bi-directional. 
+
+Also, subclassing around Panels(SaveEndPanel, LoadStartPanel, StudentSelectionPanel) is another possible
+improvement since there are duplicate codes between the three classes. 
