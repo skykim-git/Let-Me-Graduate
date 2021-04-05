@@ -1,6 +1,6 @@
 package ui;
 
-import Exceptions.NotValidNumChoiceException;
+import exceptions.NotValidNumChoiceException;
 import model.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
