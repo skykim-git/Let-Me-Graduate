@@ -18,6 +18,7 @@ public class TeamTask extends Task {
             timeRequired = 0;
         }
     }
+
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
