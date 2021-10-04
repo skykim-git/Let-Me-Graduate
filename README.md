@@ -1,4 +1,4 @@
-# Let Me Graduate! or Let Me Pass
+# Let Me Graduate! 
 
 ### Pass Projects with the "best" teammates for your graduation!!
 
